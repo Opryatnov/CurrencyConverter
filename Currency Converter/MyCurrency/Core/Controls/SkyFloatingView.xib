@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SkyFloatingView" customModule="BankPro" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="Obu-6Y-yvT" id="lK9-AJ-89y"/>
+                <outlet property="statusLabel" destination="vZW-AL-2SK" id="zJi-L1-IiK"/>
+                <outlet property="textField" destination="og7-fb-X9n" id="jMd-zM-rNd"/>
+                <outlet property="textFieldContainerView" destination="spi-pp-jo8" id="Etb-2e-nVb"/>
+                <outlet property="textFieldLeftConstraint" destination="0cb-hu-dkG" id="xOC-Xf-vgD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spi-pp-jo8">
+                    <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="og7-fb-X9n" customClass="SkyFloatingLabelTextField" customModule="BankPro" customModuleProvider="target">
+                            <rect key="frame" x="16" y="8" width="382" height="38"/>
+                            <color key="textColor" red="0.1764705882" green="0.20392156859999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" red="0.1764705882" green="0.20392156859999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-6Y-yvT">
+                            <rect key="frame" x="374" y="7" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Nl0-dX-mDG"/>
+                                <constraint firstAttribute="height" constant="40" id="ngC-9I-Ylu"/>
+                            </constraints>
+                            <state key="normal" image="ic_arrow_drop_down"/>
+                            <connections>
+                                <action selector="actionButtonClicked" destination="-1" eventType="touchUpInside" id="Ktq-fz-cC7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="og7-fb-X9n" secondAttribute="trailing" constant="16" id="0cb-hu-dkG"/>
+                        <constraint firstItem="Obu-6Y-yvT" firstAttribute="centerY" secondItem="spi-pp-jo8" secondAttribute="centerY" id="7OX-Nn-W9l"/>
+                        <constraint firstAttribute="height" constant="54" id="BDV-7P-leh"/>
+                        <constraint firstAttribute="bottom" secondItem="og7-fb-X9n" secondAttribute="bottom" constant="8" id="LA9-pQ-ExB"/>
+                        <constraint firstItem="og7-fb-X9n" firstAttribute="leading" secondItem="spi-pp-jo8" secondAttribute="leading" constant="16" id="kxW-Ha-rPg"/>
+                        <constraint firstItem="og7-fb-X9n" firstAttribute="top" secondItem="spi-pp-jo8" secondAttribute="top" constant="8" id="lVf-Zh-Ei5"/>
+                        <constraint firstAttribute="trailing" secondItem="Obu-6Y-yvT" secondAttribute="trailing" id="sKk-fg-UpU"/>
+                    </constraints>
+                </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZW-AL-2SK">
+                    <rect key="frame" x="0.0" y="102" width="414" height="14"/>
+                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                    <color key="textColor" red="0.51764705879999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vZW-AL-2SK" firstAttribute="top" secondItem="spi-pp-jo8" secondAttribute="bottom" constant="4" id="41Z-Zc-NEE"/>
+                <constraint firstItem="spi-pp-jo8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6QY-Q0-HTf"/>
+                <constraint firstAttribute="trailing" secondItem="vZW-AL-2SK" secondAttribute="trailing" id="BZq-qA-CHt"/>
+                <constraint firstItem="spi-pp-jo8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="f0O-aI-uUq"/>
+                <constraint firstItem="spi-pp-jo8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kDb-fY-qxZ"/>
+                <constraint firstItem="vZW-AL-2SK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="soQ-Bf-UGd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="382.03125"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_arrow_drop_down" width="24" height="24"/>
+    </resources>
+</document>
