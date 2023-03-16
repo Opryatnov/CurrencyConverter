@@ -17,6 +17,13 @@
 		2CE3B9B229C1C6490032647D /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9B129C1C6490032647D /* CurrencyConverterTests.swift */; };
 		2CE3B9BC29C1C6490032647D /* CurrencyConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9BB29C1C6490032647D /* CurrencyConverterUITests.swift */; };
 		2CE3B9BE29C1C6490032647D /* CurrencyConverterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9BD29C1C6490032647D /* CurrencyConverterUITestsLaunchTests.swift */; };
+		2CE3B9D029C30B7F0032647D /* UICollectionView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CD29C30B7F0032647D /* UICollectionView+Cells.swift */; };
+		2CE3B9D129C30B7F0032647D /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CE29C30B7F0032647D /* UIStoryboard+Extension.swift */; };
+		2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */; };
+		2CE3B9D529C30C0E0032647D /* UITableView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */; };
+		2CE3B9D629C30C0F0032647D /* UITableView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */; };
+		2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9DA29C30E6C0032647D /* NibLoad+Reuse.swift */; };
+		2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,11 @@
 		2CE3B9B729C1C6490032647D /* CurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE3B9BB29C1C6490032647D /* CurrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITests.swift; sourceTree = "<group>"; };
 		2CE3B9BD29C1C6490032647D /* CurrencyConverterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2CE3B9CD29C30B7F0032647D /* UICollectionView+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Cells.swift"; sourceTree = "<group>"; };
+		2CE3B9CE29C30B7F0032647D /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Cells.swift"; sourceTree = "<group>"; };
+		2CE3B9DA29C30E6C0032647D /* NibLoad+Reuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NibLoad+Reuse.swift"; sourceTree = "<group>"; };
+		2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Xib.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +155,10 @@
 		2CE3B9CB29C1C7110032647D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2CE3B9D929C30E020032647D /* UIKit+Tools */,
+				2CE3B9CD29C30B7F0032647D /* UICollectionView+Cells.swift */,
+				2CE3B9CE29C30B7F0032647D /* UIStoryboard+Extension.swift */,
+				2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,6 +168,15 @@
 			children = (
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2CE3B9D929C30E020032647D /* UIKit+Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B9DA29C30E6C0032647D /* NibLoad+Reuse.swift */,
+				2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */,
+			);
+			path = "UIKit+Tools";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE3B9D029C30B7F0032647D /* UICollectionView+Cells.swift in Sources */,
 				2CE3B99C29C1C6480032647D /* ViewController.swift in Sources */,
+				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
+				2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */,
+				2CE3B9D129C30B7F0032647D /* UIStoryboard+Extension.swift in Sources */,
 				2CE3B9A229C1C6480032647D /* CurrencyConverter.xcdatamodeld in Sources */,
 				2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */,
+				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
 				2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE3B9B229C1C6490032647D /* CurrencyConverterTests.swift in Sources */,
+				2CE3B9D529C30C0E0032647D /* UITableView+Cells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +337,7 @@
 			files = (
 				2CE3B9BE29C1C6490032647D /* CurrencyConverterUITestsLaunchTests.swift in Sources */,
 				2CE3B9BC29C1C6490032647D /* CurrencyConverterUITests.swift in Sources */,
+				2CE3B9D629C30C0F0032647D /* UITableView+Cells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
