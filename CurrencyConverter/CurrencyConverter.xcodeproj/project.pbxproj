@@ -21,6 +21,7 @@
 		2C9D37372BDFC5A10091FF99 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */; };
 		2C9D37392BDFC61B0091FF99 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D37382BDFC61B0091FF99 /* SnapKit */; };
 		2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D373A2BDFDFC80091FF99 /* currencies.json */; };
+		2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
@@ -65,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		2C9D37072BDF94D40091FF99 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRequestProviderImpl.swift; path = CurrencyConverter/Network/NetworkRequestProviderImpl.swift; sourceTree = SOURCE_ROOT; };
+		2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRequestProviderImpl.swift; path = CurrencyConverter/Network/ProtocolImpl/NetworkRequestProviderImpl.swift; sourceTree = SOURCE_ROOT; };
 		2C9D37232BDFAF490091FF99 /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
 		2C9D37252BDFB0750091FF99 /* NetworkRequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProvider.swift; sourceTree = "<group>"; };
 		2C9D37272BDFB09B0091FF99 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		2C9D37332BDFC2690091FF99 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		2C9D373A2BDFDFC80091FF99 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
+		2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
@@ -148,13 +150,11 @@
 		2C9D37222BDFAF320091FF99 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */,
-				2C9D37232BDFAF490091FF99 /* CurrencyData.swift */,
-				2C9D37252BDFB0750091FF99 /* NetworkRequestProvider.swift */,
-				2C9D37272BDFB09B0091FF99 /* NetworkService.swift */,
-				2C9D37292BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift */,
-				2C9D372D2BDFB3300091FF99 /* CountryModel.swift */,
-				2C9D372F2BDFB64D0091FF99 /* CountriesManager.swift */,
+				2CA4D7DD2BE028DC003D3DAA /* Manager */,
+				2CA4D7DC2BE028D1003D3DAA /* Models */,
+				2CA4D7DB2BE028C2003D3DAA /* ProtocolImpl */,
+				2CA4D7DA2BE028B2003D3DAA /* Protocols */,
+				2CA4D7D92BE028A7003D3DAA /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -179,8 +179,51 @@
 			isa = PBXGroup;
 			children = (
 				2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */,
+				2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2CA4D7D92BE028A7003D3DAA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D37272BDFB09B0091FF99 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2CA4D7DA2BE028B2003D3DAA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D37252BDFB0750091FF99 /* NetworkRequestProvider.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2CA4D7DB2BE028C2003D3DAA /* ProtocolImpl */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */,
+				2C9D37292BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift */,
+			);
+			path = ProtocolImpl;
+			sourceTree = "<group>";
+		};
+		2CA4D7DC2BE028D1003D3DAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D372D2BDFB3300091FF99 /* CountryModel.swift */,
+				2C9D37232BDFAF490091FF99 /* CurrencyData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2CA4D7DD2BE028DC003D3DAA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D372F2BDFB64D0091FF99 /* CountriesManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		2CDCA2C229C31F820019DFF4 /* Controllers */ = {
@@ -460,6 +503,7 @@
 				2CE3B9A229C1C6480032647D /* CurrencyConverter.xcdatamodeld in Sources */,
 				2C9D37262BDFB0750091FF99 /* NetworkRequestProvider.swift in Sources */,
 				2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */,
+				2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */,
 				2C9D372E2BDFB3300091FF99 /* CountryModel.swift in Sources */,
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,

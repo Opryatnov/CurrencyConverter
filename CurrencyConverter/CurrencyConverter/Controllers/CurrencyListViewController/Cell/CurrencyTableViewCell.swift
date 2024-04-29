@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-final class CurrencyTableViewCell: UITableViewCell {
+final class CurrencyTableViewCell: BaseTableViewCell {
+    
     // MARK: Constants
     
     private enum Constants {
@@ -41,13 +42,6 @@ final class CurrencyTableViewCell: UITableViewCell {
     }
     
     // MARK: UI
-    
-    
-    // MARK: Internal properties
-    
-    static let identifier: String = "CurrencyTableViewCell"
-    
-    // MARK:  Private properties
     
     private let currencyNameLabel: UILabel = {
         let label = UILabel()
@@ -92,18 +86,10 @@ final class CurrencyTableViewCell: UITableViewCell {
         return view
     }()
     
-    // MARK: Initialisation
+    // MARK: Internal properties
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubViews()
-        setupConstraints()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    static let identifier: String = "CurrencyTableViewCell"
+        
     // MARK: Internal methods
     
     func fill(currency: CurrencyData) {
@@ -115,7 +101,7 @@ final class CurrencyTableViewCell: UITableViewCell {
     
     // MARK: Private methods
     
-    private func addSubViews() {
+    override func configureViews() {
         backgroundColor = .clear
         contentView.addSubview(backView)
         backView.addSubview(currencyIconImageView)
@@ -125,7 +111,7 @@ final class CurrencyTableViewCell: UITableViewCell {
         backView.addSubview(favoriteImageView)
     }
     
-    private func setupConstraints() {
+    override func setupConstraints() {
         backView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
