@@ -39,9 +39,10 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     private func setupVieController(
-                                    viewcontroller: UIViewController,
-                                    title: String,
-                                    image: UIImage?) -> UIViewController {
+        viewcontroller: UIViewController,
+        title: String,
+        image: UIImage?
+    ) -> UIViewController {
         
         viewcontroller.tabBarItem.title = title
         return viewcontroller
