@@ -33,7 +33,7 @@ class CurrencyListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
         
-        NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderMockImpl()) { result in
+        NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
             switch result {
             case .success(let currencies):
                 self.currencies = currencies
