@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D37072BDF94D40091FF99 /* Gradient.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C9D37072BDF94D40091FF99 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C9D37062BDF94C70091FF99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C9D37072BDF94D40091FF99 /* Gradient.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2CDCA2C229C31F820019DFF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		2CE3B99629C1C6480032647D /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				2C9D37062BDF94C70091FF99 /* Helpers */,
 				2CDCA2C329C31F8C0019DFF4 /* Network */,
 				2CDCA2C229C31F820019DFF4 /* Controllers */,
 				2CE3B9CB29C1C7110032647D /* Extensions */,
@@ -357,6 +368,7 @@
 				2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */,
 				2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */,
 				2CE3B9D029C30B7F0032647D /* UICollectionView+Cells.swift in Sources */,
+				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
 				2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
 				2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */,

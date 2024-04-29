@@ -57,7 +57,7 @@ final class MainTabBarViewController: UITabBarController {
         
         let beziePath = UIBezierPath(
             roundedRect: CGRect(
-                x: positionY,
+                x: positionX,
                 y: tabBar.bounds.minY - positionY,
                 width: width,
                 height: height
