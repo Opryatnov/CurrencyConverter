@@ -15,6 +15,7 @@ final class NetworkService {
     
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
+        HUD.shared.show()
         networkProvider?.fetchAllCurrencies(completion: { result in
             switch result {
             case .success(let currencies):
@@ -28,9 +29,11 @@ final class NetworkService {
                             currency.currencyImage = UIImage(named: "sdr_image")
                         }
                     }
+                    HUD.shared.hide()
                     completion(.success(currencies))
                 }
             case .failure(let error):
+                HUD.shared.hide()
                 completion(.failure(error))
             }
         })

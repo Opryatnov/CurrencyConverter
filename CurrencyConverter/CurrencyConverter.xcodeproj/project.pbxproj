@@ -21,6 +21,9 @@
 		2C9D37372BDFC5A10091FF99 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */; };
 		2C9D37392BDFC61B0091FF99 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D37382BDFC61B0091FF99 /* SnapKit */; };
 		2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D373A2BDFDFC80091FF99 /* currencies.json */; };
+		2C9D373E2BDFE5CB0091FF99 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D373D2BDFE5CB0091FF99 /* Lottie */; };
+		2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D373F2BDFE5E50091FF99 /* HUD.swift */; };
+		2C9D37422BDFE7600091FF99 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D37412BDFE7600091FF99 /* loading.json */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
@@ -76,6 +79,8 @@
 		2C9D37332BDFC2690091FF99 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		2C9D373A2BDFDFC80091FF99 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
+		2C9D373F2BDFE5E50091FF99 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		2C9D37412BDFE7600091FF99 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 			files = (
 				2C9D37112BDFA79B0091FF99 /* Alamofire in Frameworks */,
 				2C9D37392BDFC61B0091FF99 /* SnapKit in Frameworks */,
+				2C9D373E2BDFE5CB0091FF99 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9D37072BDF94D40091FF99 /* Gradient.swift */,
+				2C9D373F2BDFE5E50091FF99 /* HUD.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9D372B2BDFB3110091FF99 /* countries.json */,
+				2C9D37412BDFE7600091FF99 /* loading.json */,
 				2C9D373A2BDFDFC80091FF99 /* currencies.json */,
 			);
 			path = Files;
@@ -320,6 +328,7 @@
 			packageProductDependencies = (
 				2C9D37102BDFA79B0091FF99 /* Alamofire */,
 				2C9D37382BDFC61B0091FF99 /* SnapKit */,
+				2C9D373D2BDFE5CB0091FF99 /* Lottie */,
 			);
 			productName = CurrencyConverter;
 			productReference = 2CE3B99429C1C6480032647D /* CurrencyConverter.app */;
@@ -396,6 +405,7 @@
 			packageReferences = (
 				2C9D37092BDFA6500091FF99 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C9D370A2BDFA65F0091FF99 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2C9D373C2BDFE5CB0091FF99 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 2CE3B99529C1C6480032647D /* Products */;
 			projectDirPath = "";
@@ -415,6 +425,7 @@
 			files = (
 				2CE3B9A729C1C6490032647D /* LaunchScreen.storyboard in Resources */,
 				2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */,
+				2C9D37422BDFE7600091FF99 /* loading.json in Resources */,
 				2C9D372C2BDFB3110091FF99 /* countries.json in Resources */,
 				2CE3B9A429C1C6490032647D /* Assets.xcassets in Resources */,
 				2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */,
@@ -465,6 +476,7 @@
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
 				2CDCA2E329C335D60019DFF4 /* SettingsViewController.swift in Sources */,
 				2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */,
+				2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */,
 				2C9D37372BDFC5A10091FF99 /* CurrencyTableViewCell.swift in Sources */,
 				2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */,
 			);
@@ -818,6 +830,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		2C9D373C2BDFE5CB0091FF99 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -830,6 +850,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C9D37092BDFA6500091FF99 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2C9D373D2BDFE5CB0091FF99 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C9D373C2BDFE5CB0091FF99 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
