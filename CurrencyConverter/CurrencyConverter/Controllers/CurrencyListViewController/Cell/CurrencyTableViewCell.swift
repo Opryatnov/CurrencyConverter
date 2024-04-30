@@ -77,11 +77,21 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     
     private let backView: Gradient = {
         let view = Gradient()
-        view.startColor = .red.withAlphaComponent(0.3)
-        view.endColor = .black.withAlphaComponent(0.3)
+        //        view.startColor = .red.withAlphaComponent(0.3)
+        //        view.endColor = .black.withAlphaComponent(0.3)
+        //
+        //        view.startLocation = 0.15
+        //        view.endLocation = 0.95
+        let locations: [CGFloat] = [0.0, 1.0]
+        let colors = [UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).cgColor, UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).cgColor] as CFArray
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
         
-        view.startLocation = 0.15
-        view.endLocation = 0.95
+        view.startColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).withAlphaComponent(0.3)
+        view.endColor = UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).withAlphaComponent(0.3)
+        
+        view.startLocation = 0.0
+        view.endLocation = 1.0
         
         return view
     }()

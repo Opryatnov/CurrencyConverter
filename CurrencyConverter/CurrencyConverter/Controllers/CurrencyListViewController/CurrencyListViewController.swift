@@ -12,7 +12,7 @@ class CurrencyListViewController: UIViewController {
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
+//        tableView.backgroundColor = .clear
         
         return tableView
     }()
