@@ -11,6 +11,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addGradient([UIColor.green, UIColor.yellow, UIColor.red], locations: [0.0, 0.5, 1.0],frame: view.frame)
 
     }
 

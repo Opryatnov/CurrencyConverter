@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-final class CurrencyTableViewCell: UITableViewCell {
+final class CurrencyTableViewCell: BaseTableViewCell {
+    
     // MARK: Constants
     
     private enum Constants {
@@ -41,13 +42,6 @@ final class CurrencyTableViewCell: UITableViewCell {
     }
     
     // MARK: UI
-    
-    
-    // MARK: Internal properties
-    
-    static let identifier: String = "CurrencyTableViewCell"
-    
-    // MARK:  Private properties
     
     private let currencyNameLabel: UILabel = {
         let label = UILabel()
@@ -83,27 +77,29 @@ final class CurrencyTableViewCell: UITableViewCell {
     
     private let backView: Gradient = {
         let view = Gradient()
-        view.startColor = .red.withAlphaComponent(0.3)
-        view.endColor = .black.withAlphaComponent(0.3)
+        //        view.startColor = .red.withAlphaComponent(0.3)
+        //        view.endColor = .black.withAlphaComponent(0.3)
+        //
+        //        view.startLocation = 0.15
+        //        view.endLocation = 0.95
+        let locations: [CGFloat] = [0.0, 1.0]
+        let colors = [UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).cgColor, UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).cgColor] as CFArray
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
         
-        view.startLocation = 0.15
-        view.endLocation = 0.95
+        view.startColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).withAlphaComponent(0.3)
+        view.endColor = UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).withAlphaComponent(0.3)
+        
+        view.startLocation = 0.0
+        view.endLocation = 1.0
         
         return view
     }()
     
-    // MARK: Initialisation
+    // MARK: Internal properties
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubViews()
-        setupConstraints()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    static let identifier: String = "CurrencyTableViewCell"
+        
     // MARK: Internal methods
     
     func fill(currency: CurrencyData) {
@@ -115,7 +111,7 @@ final class CurrencyTableViewCell: UITableViewCell {
     
     // MARK: Private methods
     
-    private func addSubViews() {
+    override func configureViews() {
         backgroundColor = .clear
         contentView.addSubview(backView)
         backView.addSubview(currencyIconImageView)
@@ -125,7 +121,7 @@ final class CurrencyTableViewCell: UITableViewCell {
         backView.addSubview(favoriteImageView)
     }
     
-    private func setupConstraints() {
+    override func setupConstraints() {
         backView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
