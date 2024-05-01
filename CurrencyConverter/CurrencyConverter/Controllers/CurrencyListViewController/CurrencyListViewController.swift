@@ -10,9 +10,11 @@ import UIKit
 class CurrencyListViewController: UIViewController {
     
     private let tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
-//        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
         
         return tableView
     }()
@@ -26,7 +28,7 @@ class CurrencyListViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + 20)
+            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + 15)
         }
         tableView.contentInset.bottom = 20
         tableView.delegate = self

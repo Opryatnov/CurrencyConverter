@@ -72,11 +72,18 @@ final class MainTabBarViewController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = UIColor.mainWhite.withAlphaComponent(0.3).cgColor
+        roundLayer.fillColor = UIColor.red.withAlphaComponent(0.3).cgColor
         
         
+        let selectedColor = UIColor.white
         let unselectedColor = UIColor.black
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
+        
+        UITabBar.appearance().backgroundColor = UIColor.clear
+        UITabBar.appearance().barTintColor = UIColor.clear
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
         
         let homeUnselectedImage: UIImage = UIImage(named: "exchange_unselected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         let homeSelectedImage: UIImage = UIImage(named: "exchange_selected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
