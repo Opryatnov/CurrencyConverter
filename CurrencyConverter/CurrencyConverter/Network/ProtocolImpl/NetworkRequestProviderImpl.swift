@@ -14,12 +14,8 @@ enum NetworkingError: Error {
 }
 
 final class NetworkRequestProviderImpl: NetworkRequestProvider {
-    private func createURL() -> String {
-        return "https://api.nbrb.by/exrates/rates?periodicity=0"
-    }
-    
     func fetchAllCurrencies(completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
-        AF.request(createURL())
+        AF.request("https://api.nbrb.by/exrates/rates?periodicity=0")
             .validate()
             .response { response in
                 guard let data = response.data else {

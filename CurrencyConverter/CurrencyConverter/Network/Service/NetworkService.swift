@@ -39,3 +39,4 @@ final class NetworkService {
         })
     }
 }
+// https://api.nbrb.by/bic - https://www.nbrb.by/apihelp/bic

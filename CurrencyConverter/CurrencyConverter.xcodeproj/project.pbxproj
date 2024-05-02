@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C7A81682BE11FA30071934F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A81672BE11FA30071934F /* UIView+.swift */; };
+		2C92A8BC2BE3CED200774239 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C92A8BB2BE3CED200774239 /* Colors.xcassets */; };
 		2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D37072BDF94D40091FF99 /* Gradient.swift */; };
 		2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */; };
 		2C9D37112BDFA79B0091FF99 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9D37102BDFA79B0091FF99 /* Alamofire */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		2C7A81672BE11FA30071934F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		2C92A8BB2BE3CED200774239 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2C9D37072BDF94D40091FF99 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRequestProviderImpl.swift; path = CurrencyConverter/Network/ProtocolImpl/NetworkRequestProviderImpl.swift; sourceTree = SOURCE_ROOT; };
 		2C9D37232BDFAF490091FF99 /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
@@ -140,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C92A8BA2BE3CEA200774239 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2CE3B9A329C1C6490032647D /* Assets.xcassets */,
+				2C92A8BB2BE3CED200774239 /* Colors.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		2C9D37062BDF94C70091FF99 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,7 +318,7 @@
 				2CE3B9CB29C1C7110032647D /* Extensions */,
 				2CE3B99729C1C6480032647D /* AppDelegate.swift */,
 				2CE3B99929C1C6480032647D /* SceneDelegate.swift */,
-				2CE3B9A329C1C6490032647D /* Assets.xcassets */,
+				2C92A8BA2BE3CEA200774239 /* SupportingFiles */,
 				2CE3B9A529C1C6490032647D /* LaunchScreen.storyboard */,
 				2CE3B9A829C1C6490032647D /* Info.plist */,
 				2CE3B9A029C1C6480032647D /* CurrencyConverter.xcdatamodeld */,
@@ -469,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C92A8BC2BE3CED200774239 /* Colors.xcassets in Resources */,
 				2CE3B9A729C1C6490032647D /* LaunchScreen.storyboard in Resources */,
 				2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */,
 				2C9D37422BDFE7600091FF99 /* loading.json in Resources */,
