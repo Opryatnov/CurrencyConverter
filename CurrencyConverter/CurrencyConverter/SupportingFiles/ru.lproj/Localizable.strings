@@ -1,0 +1,5 @@
+// MARK: Tab bar titles
+
+"CONVERTER.TAB.TITLE" = "Конвертер";
+"CURRENCY.LIST.TAB.TITLE" = "Валюты";
+"SETTINGS.TAB.TITLE" = "Настройки";

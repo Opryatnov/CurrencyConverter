@@ -16,6 +16,7 @@ final class NetworkService {
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
         HUD.shared.show()
+        CurrenciesManager.shared.fetchCurrencies()
         networkProvider?.fetchAllCurrencies(completion: { result in
             switch result {
             case .success(let currencies):
@@ -27,6 +28,11 @@ final class NetworkService {
                             currency.currencyImage = UIImage(named: "European-Union-Flag-icon")
                         } else {
                             currency.currencyImage = UIImage(named: "sdr_image")
+                        }
+                        if let additionalCurrencyValues = CurrenciesManager.shared.allCurrencyData?.first(where: { $0.abbreviation == currency.currencyAbbreviation }) {
+                            currency.name = additionalCurrencyValues.name
+                            currency.nameBelarusian = additionalCurrencyValues.nameBelarusian
+                            currency.nameEnglish = additionalCurrencyValues.nameEnglish
                         }
                     }
                     HUD.shared.hide()

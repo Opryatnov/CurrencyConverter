@@ -1,0 +1,5 @@
+// MARK: Tab bar titles
+
+"CONVERTER.TAB.TITLE" = "Converter";
+"CURRENCY.LIST.TAB.TITLE" = "CurrencyList";
+"SETTINGS.TAB.TITLE" = "Settings";
