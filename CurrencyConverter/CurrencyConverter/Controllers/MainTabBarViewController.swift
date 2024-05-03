@@ -21,17 +21,17 @@ final class MainTabBarViewController: UITabBarController {
         viewControllers = [
             setupVieController(
                 viewcontroller: ConverterViewController(),
-                title: "Converter",
+                title: LS("CONVERTER.TAB.TITLE"),
                 image: UIImage(named: "settings")
             ),
             setupVieController(
                 viewcontroller: CurrencyListViewController(),
-                title: "CurrencyList",
+                title: LS("CURRENCY.LIST.TAB.TITLE"),
                 image: UIImage(named: "settings")
             ),
             setupVieController(
                 viewcontroller: SettingsViewController(),
-                title: "Settings",
+                title: LS("SETTINGS.TAB.TITLE"),
                 image: UIImage(named: "free-icon-exchange-3879126")
             )
         ]

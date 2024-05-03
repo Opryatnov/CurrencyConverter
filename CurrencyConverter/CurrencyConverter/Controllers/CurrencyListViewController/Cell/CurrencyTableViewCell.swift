@@ -104,7 +104,7 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     
     func fill(currency: CurrencyData) {
         currencyIconImageView.image = currency.currencyImage
-        currencyNameLabel.text = currency.currencyName ?? ""
+        currencyNameLabel.text = currency.localisedName ?? ""
         currencyCodeLabel.text = currency.currencyAbbreviation
         favoriteImageView.image = currency.isSelected ? UIImage(named: "selected") : UIImage(named: "nonSelected")
     }
