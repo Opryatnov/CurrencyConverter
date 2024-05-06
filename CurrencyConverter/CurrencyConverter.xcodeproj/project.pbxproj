@@ -31,6 +31,7 @@
 		2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D373F2BDFE5E50091FF99 /* HUD.swift */; };
 		2C9D37422BDFE7600091FF99 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D37412BDFE7600091FF99 /* loading.json */; };
 		2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */; };
+		2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB585462BE8ECF000A303BF /* Fuel.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
@@ -98,6 +99,7 @@
 		2C9D373F2BDFE5E50091FF99 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		2C9D37412BDFE7600091FF99 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2CB585462BE8ECF000A303BF /* Fuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				2C9D372D2BDFB3300091FF99 /* CountryModel.swift */,
 				2C9D37232BDFAF490091FF99 /* CurrencyData.swift */,
+				2CB585462BE8ECF000A303BF /* Fuel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */,
 				2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */,
 				2CE3B9D029C30B7F0032647D /* UICollectionView+Cells.swift in Sources */,
+				2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */,
 				2C9D37242BDFAF490091FF99 /* CurrencyData.swift in Sources */,
 				2C9D372A2BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift in Sources */,
 				2C9D37282BDFB09B0091FF99 /* NetworkService.swift in Sources */,

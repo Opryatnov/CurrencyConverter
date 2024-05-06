@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 final class NetworkService {
     
     static let shared = NetworkService()
     private init() {}
+    
+    var fuelData: [Fuel]? = []
     
     
     /// Получение курсов валют на текущую дату
@@ -43,6 +46,43 @@ final class NetworkService {
                 completion(.failure(error))
             }
         })
+    }
+    
+    // Получение данных по топливу
+    
+    func fetchFuel(completion: @escaping (Result<[Fuel]?, Error>) -> ()) {
+        HUD.shared.show()
+        getFuel { result in
+            switch result {
+            case .success(let fuel):
+                HUD.shared.hide()
+                completion(.success(fuel))
+            case .failure(let error):
+                HUD.shared.hide()
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    // MARK: Private methods
+    
+    private func getFuel(completion: @escaping (Result<[Fuel]?, Error>) -> ()) {
+        AF.request("https://drive.usercontent.google.com/download?id=10gaA5Ee98tAFO3sBo3Eqx-yjzIlN2nsx&export=download&authuser=0&confirm=t&uuid=4687d842-c727-418a-b162-10dea18dbfae&at=APZUnTUMRATwmNz8dPzJ5oSawxQJ:1714991802396")
+            .validate()
+            .response { response in
+                guard let data = response.data else {
+                    if let error = response.error {
+                        completion(.failure(error))
+                    }
+                    return
+                }
+                let jsonDecoder = JSONDecoder()
+                guard let fuel: [Fuel] = try? jsonDecoder.decode([Fuel].self, from: data) else {
+                    completion(.failure(NetworkingError.invalidData))
+                    return
+                }
+                completion(.success(fuel))
+            }
     }
 }
 // https://api.nbrb.by/bic - https://www.nbrb.by/apihelp/bic

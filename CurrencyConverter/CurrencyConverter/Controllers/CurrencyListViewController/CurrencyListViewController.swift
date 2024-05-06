@@ -7,7 +7,17 @@
 
 import UIKit
 
-class CurrencyListViewController: UIViewController {
+final class CurrencyListViewController: UIViewController {
+    
+    // MARK: Constants
+    
+    private enum Constants {
+        static let tableViewBottomInset: CGFloat = 20
+        static let tableViewAdditionalInset: CGFloat = 15
+        static let tableViewContentInset: CGFloat = 20
+    }
+    
+    // MARK: UI
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -19,22 +29,34 @@ class CurrencyListViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: Private properties
     
     private var currencies: [CurrencyData]?
+    
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + 15)
+            $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
+            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + Constants.tableViewAdditionalInset)
         }
-        tableView.contentInset.bottom = 20
+        tableView.contentInset.bottom = Constants.tableViewContentInset
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCurrencyList()
+    }
+    
+    // MARK: Private methods
+    
+    private func fetchCurrencyList() {
         NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
             switch result {
             case .success(let currencies):
@@ -46,6 +68,8 @@ class CurrencyListViewController: UIViewController {
         }
     }
 }
+
+// MARK: - UITableViewDelegate, - UITableViewDataSource
 
 extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

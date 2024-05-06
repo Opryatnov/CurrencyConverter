@@ -8,6 +8,8 @@
 import UIKit
 
 final class MainTabBarViewController: UITabBarController {
+    
+    // MARK:  Override methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +17,8 @@ final class MainTabBarViewController: UITabBarController {
         setTabBarAppearance()
 
     }
+    
+    // MARK: Private methods
     
     private func setupTabBar() {
         

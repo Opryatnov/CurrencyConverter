@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ConverterViewController: UIViewController {
+final class ConverterViewController: UIViewController {
+    
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
