@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */; };
+		2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523E2BEA1AF40027D041 /* UIFont+.swift */; };
+		2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */; };
+		2C4E52432BEA1C010027D041 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52422BEA1C010027D041 /* UIWindow+.swift */; };
 		2C7A81682BE11FA30071934F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A81672BE11FA30071934F /* UIView+.swift */; };
 		2C828BF82BE5024E00C5D2F0 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C828BF72BE5024E00C5D2F0 /* Localization.swift */; };
 		2C828C072BE50A3A00C5D2F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C828C092BE50A3A00C5D2F0 /* Localizable.strings */; };
@@ -75,6 +79,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		2C4E523E2BEA1AF40027D041 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenViewController+extension.swift"; sourceTree = "<group>"; };
+		2C4E52422BEA1C010027D041 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		2C7A81672BE11FA30071934F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2C828BF72BE5024E00C5D2F0 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		2C828C082BE50A3A00C5D2F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -155,6 +163,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C4E523B2BEA1A9B0027D041 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */,
+				2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		2C92A8BA2BE3CEA200774239 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +278,7 @@
 		2CDCA2C229C31F820019DFF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C4E523B2BEA1A9B0027D041 /* SplashScreen */,
 				2CDCA2C629C3231B0019DFF4 /* SettingsViewController */,
 				2CDCA2C529C3230D0019DFF4 /* CurrencyListViewController */,
 				2CDCA2C429C322FC0019DFF4 /* ConverterViewController */,
@@ -363,6 +381,8 @@
 				2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */,
 				2C9D37332BDFC2690091FF99 /* UIViewController+.swift */,
 				2C7A81672BE11FA30071934F /* UIView+.swift */,
+				2C4E523E2BEA1AF40027D041 /* UIFont+.swift */,
+				2C4E52422BEA1C010027D041 /* UIWindow+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,19 +555,23 @@
 				2C9D372A2BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift in Sources */,
 				2C9D37282BDFB09B0091FF99 /* NetworkService.swift in Sources */,
 				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
+				2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */,
 				2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */,
 				2C9D37342BDFC2690091FF99 /* UIViewController+.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
 				2C7A81682BE11FA30071934F /* UIView+.swift in Sources */,
 				2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */,
+				2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */,
 				2C9D37302BDFB64D0091FF99 /* CountriesManager.swift in Sources */,
 				2CE3B9D129C30B7F0032647D /* UIStoryboard+Extension.swift in Sources */,
 				2CE3B9A229C1C6480032647D /* CurrencyConverter.xcdatamodeld in Sources */,
 				2C9D37262BDFB0750091FF99 /* NetworkRequestProvider.swift in Sources */,
 				2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */,
+				2C4E52432BEA1C010027D041 /* UIWindow+.swift in Sources */,
 				2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */,
 				2C9D372E2BDFB3300091FF99 /* CountryModel.swift in Sources */,
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
+				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
 				2CDCA2E329C335D60019DFF4 /* SettingsViewController.swift in Sources */,
