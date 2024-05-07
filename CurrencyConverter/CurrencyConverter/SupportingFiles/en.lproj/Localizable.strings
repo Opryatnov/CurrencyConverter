@@ -3,3 +3,7 @@
 "CONVERTER.TAB.TITLE" = "Converter";
 "CURRENCY.LIST.TAB.TITLE" = "CurrencyList";
 "SETTINGS.TAB.TITLE" = "Settings";
+"SPLASH.MORNING.TITLE" = "Good morning";
+"SPLASH.DAY.TITLE" = "Good afternoon";
+"SPLASH.EVENING.TITLE" = "Good evening";
+"SPLASH.NIGHT.TITLE" = "Good night";
