@@ -41,8 +41,8 @@
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
 		2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */; };
 		2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */; };
-		2CDCA2E329C335D60019DFF4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E129C335D60019DFF4 /* SettingsViewController.swift */; };
-		2CDCA2E429C335D60019DFF4 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E229C335D60019DFF4 /* SettingsViewController.xib */; };
+		2CDCA2E329C335D60019DFF4 /* FelCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */; };
+		2CDCA2E429C335D60019DFF4 /* FelCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */; };
 		2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99729C1C6480032647D /* AppDelegate.swift */; };
 		2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99929C1C6480032647D /* SceneDelegate.swift */; };
 		2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */; };
@@ -113,8 +113,8 @@
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
 		2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyListViewController.xib; sourceTree = "<group>"; };
-		2CDCA2E129C335D60019DFF4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		2CDCA2E229C335D60019DFF4 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FelCalculatorViewController.swift; sourceTree = "<group>"; };
+		2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FelCalculatorViewController.xib; sourceTree = "<group>"; };
 		2CE3B99429C1C6480032647D /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE3B99729C1C6480032647D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE3B99929C1C6480032647D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +170,13 @@
 				2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		2C4E52532BEBA2AC0027D041 /* CurrencyDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CurrencyDetailsViewController;
 			sourceTree = "<group>";
 		};
 		2C92A8BA2BE3CEA200774239 /* SupportingFiles */ = {
@@ -278,8 +285,9 @@
 		2CDCA2C229C31F820019DFF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C4E52532BEBA2AC0027D041 /* CurrencyDetailsViewController */,
 				2C4E523B2BEA1A9B0027D041 /* SplashScreen */,
-				2CDCA2C629C3231B0019DFF4 /* SettingsViewController */,
+				2CDCA2C629C3231B0019DFF4 /* FelCalculatorViewController */,
 				2CDCA2C529C3230D0019DFF4 /* CurrencyListViewController */,
 				2CDCA2C429C322FC0019DFF4 /* ConverterViewController */,
 				2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */,
@@ -306,13 +314,13 @@
 			path = CurrencyListViewController;
 			sourceTree = "<group>";
 		};
-		2CDCA2C629C3231B0019DFF4 /* SettingsViewController */ = {
+		2CDCA2C629C3231B0019DFF4 /* FelCalculatorViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2CDCA2E129C335D60019DFF4 /* SettingsViewController.swift */,
-				2CDCA2E229C335D60019DFF4 /* SettingsViewController.xib */,
+				2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */,
+				2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */,
 			);
-			path = SettingsViewController;
+			path = FelCalculatorViewController;
 			sourceTree = "<group>";
 		};
 		2CE3B98B29C1C6480032647D = {
@@ -522,7 +530,7 @@
 				2CE3B9A429C1C6490032647D /* Assets.xcassets in Resources */,
 				2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */,
 				2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */,
-				2CDCA2E429C335D60019DFF4 /* SettingsViewController.xib in Resources */,
+				2CDCA2E429C335D60019DFF4 /* FelCalculatorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +582,7 @@
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
-				2CDCA2E329C335D60019DFF4 /* SettingsViewController.swift in Sources */,
+				2CDCA2E329C335D60019DFF4 /* FelCalculatorViewController.swift in Sources */,
 				2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */,
 				2C828BF82BE5024E00C5D2F0 /* Localization.swift in Sources */,
 				2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */,
