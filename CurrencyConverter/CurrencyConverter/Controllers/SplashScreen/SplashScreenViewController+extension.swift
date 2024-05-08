@@ -22,16 +22,17 @@ extension SplashScreenViewController {
         }
         
         var timeOfDayBackground: UIImage? {
-            switch self {
-            case .morning:
-                return UIImage(named: .morning)
-            case .day:
-                return UIImage(named: .day)
-            case .evening:
-                return UIImage(named: .evening)
-            case .night:
-                return UIImage(named: .night)
-            }
+//            switch self {
+//            case .morning:
+//                return UIImage(named: .morning)
+//            case .day:
+//                return UIImage(named: .day)
+//            case .evening:
+//                return UIImage(named: .evening)
+//            case .night:
+//                return UIImage(named: .night)
+//            }
+            UIImage(named: .splashBackground)
         }
         
 //        var timeOfDayIcon: UIImage? {

@@ -157,7 +157,7 @@ final class SplashScreenViewController: UIViewController {
         if let timeOfDay = getTimeOfDay(date: currentTime()) {
             backgroundImageView.image = timeOfDay.timeOfDayBackground
 //            timeOfDayIconImageView.image = timeOfDay.timeOfDayIcon
-            animatedLogoImageView.image = UIImage(named: .splashLogo)
+//            animatedLogoImageView.image = UIImage(named: .splashLogo)
             
             let titleText = [timeOfDay.timeOfDayTitle]
                 .compactMap { $0 }

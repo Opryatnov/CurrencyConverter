@@ -102,6 +102,7 @@ enum ColorName: String {
 }
 
 enum ImageName: String {
+    case splashBackground = "splashBackground"
     case alert = "alert"
     case alertBlocked = "alertBlocked"
     case applePay = "applePay"

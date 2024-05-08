@@ -34,9 +34,14 @@ final class MainTabBarViewController: UITabBarController {
                 image: UIImage(named: "settings")
             ),
             setupVieController(
-                viewcontroller: SettingsViewController(),
-                title: LS("SETTINGS.TAB.TITLE"),
+                viewcontroller: FelCalculatorViewController(),
+                title: LS("FUEL.CALCULATOR.TAB.TITLE"),
                 image: UIImage(named: "free-icon-exchange-3879126")
+            ),
+            setupVieController(
+                viewcontroller: FelCalculatorViewController(),
+                title: LS("FUEL.CALCULATOR.TAB.TITLE"),
+                image: UIImage(named: "settings")
             )
         ]
         
