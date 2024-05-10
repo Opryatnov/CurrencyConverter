@@ -22,8 +22,16 @@ final class CurrencyData: Decodable {
     var nameEnglish: String?
     
     var localisedName: String {
+        if #available(iOS 16, *) {
+            return setCurrencyName(language: Locale.current.language.languageCode?.identifier ?? "")
+        } else {
+            return setCurrencyName(language: Locale.current.identifier)
+        }
+    }
+    
+    func setCurrencyName(language: String) -> String {
         var tempCurrencyName: String?
-        switch Locale.current.language.languageCode?.identifier {
+        switch language {
         case "be":
             tempCurrencyName = nameBelarusian
         case "en":

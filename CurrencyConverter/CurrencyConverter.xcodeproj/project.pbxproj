@@ -35,6 +35,7 @@
 		2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D373F2BDFE5E50091FF99 /* HUD.swift */; };
 		2C9D37422BDFE7600091FF99 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D37412BDFE7600091FF99 /* loading.json */; };
 		2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */; };
+		2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */; };
 		2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB585462BE8ECF000A303BF /* Fuel.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
@@ -105,6 +106,7 @@
 		2C9D373F2BDFE5E50091FF99 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		2C9D37412BDFE7600091FF99 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		2CB585462BE8ECF000A303BF /* Fuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				2C7A81672BE11FA30071934F /* UIView+.swift */,
 				2C4E523E2BEA1AF40027D041 /* UIFont+.swift */,
 				2C4E52422BEA1C010027D041 /* UIWindow+.swift */,
+				2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				2C9D37342BDFC2690091FF99 /* UIViewController+.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
 				2C7A81682BE11FA30071934F /* UIView+.swift in Sources */,
+				2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */,
 				2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */,
 				2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */,
 				2C9D37302BDFB64D0091FF99 /* CountriesManager.swift in Sources */,
@@ -762,6 +766,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -789,6 +794,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,7 +10,11 @@ import SwiftUI
 
 extension UIColor {
     static var tabBarItemAccent: UIColor {
-        UIColor.systemCyan
+        if #available(iOS 15.0, *) {
+            UIColor.systemCyan
+        } else {
+            UIColor.cyan
+        }
     }
     
     static var mainWhite: UIColor {
