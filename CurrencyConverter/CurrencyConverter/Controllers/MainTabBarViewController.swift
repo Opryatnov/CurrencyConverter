@@ -34,7 +34,7 @@ final class MainTabBarViewController: UITabBarController {
                 image: UIImage(named: .currencyUnselectedImage)
             ),
             setupVieController(
-                viewcontroller: FelCalculatorViewController(),
+                viewcontroller: FuelCalculatorViewController(),
                 title: LS("FUEL.CALCULATOR.TAB.TITLE"),
                 image: UIImage(named: .fuelUnselected)
             )
@@ -76,7 +76,8 @@ final class MainTabBarViewController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = UIColor.red.withAlphaComponent(0.3).cgColor
+        roundLayer.fillColor = UIColor(resource: .darkGray5).withAlphaComponent(0.3).cgColor
+//        UIColor.red.withAlphaComponent(0.3).cgColor
         
         
         let selectedColor = UIColor.white
