@@ -26,22 +26,17 @@ final class MainTabBarViewController: UITabBarController {
             setupVieController(
                 viewcontroller: ConverterViewController(),
                 title: LS("CONVERTER.TAB.TITLE"),
-                image: UIImage(named: "settings")
+                image: UIImage(named: .homeSelectedImage)
             ),
             setupVieController(
                 viewcontroller: CurrencyListViewController(),
                 title: LS("CURRENCY.LIST.TAB.TITLE"),
-                image: UIImage(named: "settings")
+                image: UIImage(named: .currencyUnselectedImage)
             ),
             setupVieController(
                 viewcontroller: FelCalculatorViewController(),
                 title: LS("FUEL.CALCULATOR.TAB.TITLE"),
-                image: UIImage(named: "free-icon-exchange-3879126")
-            ),
-            setupVieController(
-                viewcontroller: FelCalculatorViewController(),
-                title: LS("FUEL.CALCULATOR.TAB.TITLE"),
-                image: UIImage(named: "settings")
+                image: UIImage(named: .fuelUnselected)
             )
         ]
         
@@ -94,14 +89,14 @@ final class MainTabBarViewController: UITabBarController {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
         
-        let homeUnselectedImage: UIImage = UIImage(named: "exchange_unselected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        let homeSelectedImage: UIImage = UIImage(named: "exchange_selected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let homeUnselectedImage: UIImage = UIImage(named: .homeUnselectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let homeSelectedImage: UIImage = UIImage(named: .homeSelectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
-        let currencyUnselectedImage: UIImage = UIImage(named: "currency_unselected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        let currencySelectedImage: UIImage = UIImage(named: "currency_selected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let currencyUnselectedImage: UIImage = UIImage(named: .currencyUnselectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let currencySelectedImage: UIImage = UIImage(named: .currencySelectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
-        let settingsUnselectedImage: UIImage = UIImage(named: "settings_unselected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        let settingsSelectedImage: UIImage = UIImage(named: "settings_selected_icon")!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let fuelUnselectedImage: UIImage = UIImage(named: .fuelUnselected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let fuelSelectedImage: UIImage = UIImage(named: .fuelSelected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
         if let items = tabBar.items {
             items[0].image = homeUnselectedImage
@@ -110,8 +105,8 @@ final class MainTabBarViewController: UITabBarController {
             items[1].image = currencyUnselectedImage
             items[1].selectedImage = currencySelectedImage
             
-            items[2].image = settingsUnselectedImage
-            items[2].selectedImage = settingsSelectedImage
+            items[2].image = fuelUnselectedImage
+            items[2].selectedImage = fuelSelectedImage
         }
     }
 }
