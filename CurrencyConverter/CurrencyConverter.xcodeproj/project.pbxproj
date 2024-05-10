@@ -11,6 +11,7 @@
 		2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523E2BEA1AF40027D041 /* UIFont+.swift */; };
 		2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */; };
 		2C4E52432BEA1C010027D041 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52422BEA1C010027D041 /* UIWindow+.swift */; };
+		2C65DE632BEE408A00668688 /* FuelCalculatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C65DE622BEE408A00668688 /* FuelCalculatorCell.swift */; };
 		2C7A81682BE11FA30071934F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A81672BE11FA30071934F /* UIView+.swift */; };
 		2C828BF82BE5024E00C5D2F0 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C828BF72BE5024E00C5D2F0 /* Localization.swift */; };
 		2C828C072BE50A3A00C5D2F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C828C092BE50A3A00C5D2F0 /* Localizable.strings */; };
@@ -42,8 +43,8 @@
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
 		2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */; };
 		2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */; };
-		2CDCA2E329C335D60019DFF4 /* FelCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */; };
-		2CDCA2E429C335D60019DFF4 /* FelCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */; };
+		2CDCA2E329C335D60019DFF4 /* FuelCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E129C335D60019DFF4 /* FuelCalculatorViewController.swift */; };
+		2CDCA2E429C335D60019DFF4 /* FuelCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2E229C335D60019DFF4 /* FuelCalculatorViewController.xib */; };
 		2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99729C1C6480032647D /* AppDelegate.swift */; };
 		2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99929C1C6480032647D /* SceneDelegate.swift */; };
 		2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */; };
@@ -83,6 +84,7 @@
 		2C4E523E2BEA1AF40027D041 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenViewController+extension.swift"; sourceTree = "<group>"; };
 		2C4E52422BEA1C010027D041 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		2C65DE622BEE408A00668688 /* FuelCalculatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelCalculatorCell.swift; sourceTree = "<group>"; };
 		2C7A81672BE11FA30071934F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2C828BF72BE5024E00C5D2F0 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		2C828C082BE50A3A00C5D2F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -113,8 +115,8 @@
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
 		2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyListViewController.xib; sourceTree = "<group>"; };
-		2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FelCalculatorViewController.swift; sourceTree = "<group>"; };
-		2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FelCalculatorViewController.xib; sourceTree = "<group>"; };
+		2CDCA2E129C335D60019DFF4 /* FuelCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelCalculatorViewController.swift; sourceTree = "<group>"; };
+		2CDCA2E229C335D60019DFF4 /* FuelCalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FuelCalculatorViewController.xib; sourceTree = "<group>"; };
 		2CE3B99429C1C6480032647D /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE3B99729C1C6480032647D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE3B99929C1C6480032647D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,22 @@
 			path = CurrencyDetailsViewController;
 			sourceTree = "<group>";
 		};
+		2C65DE602BEE400100668688 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2C65DE612BEE407900668688 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C65DE622BEE408A00668688 /* FuelCalculatorCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2C92A8BA2BE3CEA200774239 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				2C9D37362BDFC5A10091FF99 /* CurrencyTableViewCell.swift */,
-				2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -316,8 +333,9 @@
 		2CDCA2C629C3231B0019DFF4 /* FelCalculatorViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2CDCA2E129C335D60019DFF4 /* FelCalculatorViewController.swift */,
-				2CDCA2E229C335D60019DFF4 /* FelCalculatorViewController.xib */,
+				2C65DE612BEE407900668688 /* Cell */,
+				2CDCA2E129C335D60019DFF4 /* FuelCalculatorViewController.swift */,
+				2CDCA2E229C335D60019DFF4 /* FuelCalculatorViewController.xib */,
 			);
 			path = FelCalculatorViewController;
 			sourceTree = "<group>";
@@ -346,6 +364,7 @@
 		2CE3B99629C1C6480032647D /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				2C65DE602BEE400100668688 /* Components */,
 				2C92A8BA2BE3CEA200774239 /* SupportingFiles */,
 				2CE3B9CB29C1C7110032647D /* Extensions */,
 				2C9D37062BDF94C70091FF99 /* Helpers */,
@@ -528,7 +547,7 @@
 				2CE3B9A429C1C6490032647D /* Assets.xcassets in Resources */,
 				2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */,
 				2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */,
-				2CDCA2E429C335D60019DFF4 /* FelCalculatorViewController.xib in Resources */,
+				2CDCA2E429C335D60019DFF4 /* FuelCalculatorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +581,7 @@
 				2C9D37282BDFB09B0091FF99 /* NetworkService.swift in Sources */,
 				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
 				2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */,
+				2C65DE632BEE408A00668688 /* FuelCalculatorCell.swift in Sources */,
 				2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */,
 				2C9D37342BDFC2690091FF99 /* UIViewController+.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
@@ -581,7 +601,7 @@
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
-				2CDCA2E329C335D60019DFF4 /* FelCalculatorViewController.swift in Sources */,
+				2CDCA2E329C335D60019DFF4 /* FuelCalculatorViewController.swift in Sources */,
 				2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */,
 				2C828BF82BE5024E00C5D2F0 /* Localization.swift in Sources */,
 				2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */,
