@@ -104,12 +104,12 @@ final class FuelCalculatorCell: BaseTableViewCell {
     // MARK: Internal methods
     
     func fill(fuel: Fuel) {
-//        fuelIconImageView.image = currency.currencyImage
         fuelNameLabel.text = fuel.localisedName
         fuelCodeLabel.text = fuel.fuelCode
         fuelPriceLabel.text = fuel.cost?.description
         stackView.addArrangedSubview(fuelNameLabel)
         stackView.addArrangedSubview(fuelCodeLabel)
+        setupFuelIcons(fuel: fuel)
     }
     
     // MARK: Private methods
@@ -144,5 +144,28 @@ final class FuelCalculatorCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(Constants.FuelPriceLabel.rightInset)
             $0.centerY.equalTo(fuelIconImageView)
         }
+    }
+    
+    // MARK: Private methods
+    
+    private func setupFuelIcons(fuel: Fuel) {
+        var fuelImage: UIImage = UIImage()
+        switch fuel.fuelCode {
+        case "AI-92":
+            fuelImage = UIImage(resource: .fuel92)
+        case "AI-95":
+            fuelImage = UIImage(resource: .fuel95)
+        case "Gas":
+            fuelImage = UIImage(resource: .fuelGas)
+        case "DT":
+            fuelImage = UIImage(resource: .dieselFuel)
+        case "DT-ECO":
+            fuelImage = UIImage(resource: .fuelEco)
+        case "DT-Winter":
+            fuelImage = UIImage(resource: .winterDieselFuel)
+        default:
+            fuelImage = UIImage(resource: .dieselFuel)
+        }
+        fuelIconImageView.image = fuelImage
     }
 }

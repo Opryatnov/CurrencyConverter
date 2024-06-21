@@ -5,7 +5,7 @@
 //  Created by Opryatnov on 3.05.24.
 //
 
-import Foundation
+import UIKit
 
 final class CurrenciesManager {
     
@@ -24,12 +24,19 @@ final class CurrenciesManager {
                 }
                 
             } catch let error {
-                print("parse error: \(error.localizedDescription)")
                 allCurrencyData = nil
+                showError(message: error.localizedDescription)
             }
         } else {
-            print("Invalid filename/path.")
             allCurrencyData = nil
+            showError(message: "Invalid filename/path.")
         }
+    }
+    
+    private func showError(message: String?) {
+        let closeAction = [
+            UIAlertAction(title: LS("ALERT.CLOSE.BUTTON"), style: .cancel)
+        ]
+        Navigation.currentController?.showAlert(message: message, buttons: closeAction, viewController: Navigation.currentController)
     }
 }

@@ -13,9 +13,8 @@ final class FuelCalculatorViewController: UIViewController {
     // MARK: UI
     
     private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
-//        tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.backgroundColor = UIColor(resource: .darkGray6)
@@ -31,7 +30,6 @@ final class FuelCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addGradient([UIColor.green, UIColor.yellow, UIColor.red], locations: [0.0, 0.5, 1.0],frame: view.frame)
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
@@ -53,9 +51,18 @@ final class FuelCalculatorViewController: UIViewController {
                 self.fuelList = fuelList
                 self.tableView.reloadData()
             case .failure(let error):
-                self.showAlert(message: error.localizedDescription, buttons: [], viewController: self)
+                self.showError(message: error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: Private methods
+    
+    private func showError(message: String?) {
+        let closeAction = [
+            UIAlertAction(title: LS("ALERT.CLOSE.BUTTON"), style: .cancel)
+        ]
+        showAlert(message: message, buttons: closeAction, viewController: self)
     }
 }
 

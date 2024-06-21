@@ -5,7 +5,7 @@
 //  Created by Opryatnov on 29.04.24.
 //
 
-import Foundation
+import UIKit
 
 final class CountriesManager {
     static func fetchAllCountries(completion: @escaping (Countries?) -> Void) {
@@ -19,10 +19,18 @@ final class CountriesManager {
                 }
                 
             } catch let error {
-                print("parse error: \(error.localizedDescription)")
+                showError(message: error.localizedDescription)
+                
             }
         } else {
-            print("Invalid filename/path.")
+            showError(message: "Invalid filename/path.")
         }
+    }
+    
+    static func showError(message: String?) {
+        let closeAction = [
+            UIAlertAction(title: LS("ALERT.CLOSE.BUTTON"), style: .cancel)
+        ]
+        Navigation.currentController?.showAlert(message: message, buttons: closeAction, viewController: Navigation.currentController)
     }
 }

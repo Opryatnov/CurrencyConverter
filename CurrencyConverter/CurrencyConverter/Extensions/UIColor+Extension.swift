@@ -128,6 +128,12 @@ enum ImageName: String {
     case homeSelectedImage = "exchange_selected_icon"
     case currencyUnselectedImage = "currency_unselected_icon"
     case currencySelectedImage = "currency_selected_icon"
+    case fuelAI95 = "fuel-95"
+    case fuelAI92 = "fuel-92"
+    case fuelDieselWinter = "winter-diesel-fuel"
+    case fuelDiesel = "diesel-fuel"
+    case fuelEco = "fuel-eco"
+    case fuelGas = "fuel-gas"
 }
 
 // MARK: - UIKit Assets Initialization

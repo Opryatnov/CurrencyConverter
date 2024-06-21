@@ -77,11 +77,6 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     
     private let backView: Gradient = {
         let view = Gradient()
-        //        view.startColor = .red.withAlphaComponent(0.3)
-        //        view.endColor = .black.withAlphaComponent(0.3)
-        //
-        //        view.startLocation = 0.15
-        //        view.endLocation = 0.95
         let locations: [CGFloat] = [0.0, 1.0]
         let colors = [UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).cgColor, UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).cgColor] as CFArray
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -92,6 +87,9 @@ final class CurrencyTableViewCell: BaseTableViewCell {
         
         view.startLocation = 0.0
         view.endLocation = 1.0
+        view.layer.cornerRadius = 20
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(resource: .gold1).cgColor
         
         return view
     }()
@@ -104,7 +102,7 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     
     func fill(currency: CurrencyData) {
         currencyIconImageView.image = currency.currencyImage
-        currencyNameLabel.text = currency.localisedName ?? ""
+        currencyNameLabel.text = currency.localisedName
         currencyCodeLabel.text = currency.currencyAbbreviation
         favoriteImageView.image = currency.isSelected ? UIImage(named: "selected") : UIImage(named: "nonSelected")
     }
@@ -123,8 +121,8 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     
     override func setupConstraints() {
         backView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
+            $0.top.bottom.equalToSuperview().inset(10)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         currencyIconImageView.snp.makeConstraints {

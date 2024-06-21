@@ -15,7 +15,6 @@ final class NetworkService {
     
     var fuelData: [Fuel]? = []
     
-    
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
         HUD.shared.show()

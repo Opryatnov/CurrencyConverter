@@ -76,9 +76,7 @@ final class MainTabBarViewController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = UIColor(resource: .darkGray5).withAlphaComponent(0.3).cgColor
-//        UIColor.red.withAlphaComponent(0.3).cgColor
-        
+        roundLayer.fillColor = UIColor(resource: .white).withAlphaComponent(0.5).cgColor        
         
         let selectedColor = UIColor.white
         let unselectedColor = UIColor.black
