@@ -106,7 +106,7 @@ final class FuelCalculatorCell: BaseTableViewCell {
     func fill(fuel: Fuel) {
         fuelNameLabel.text = fuel.localisedName
         fuelCodeLabel.text = fuel.fuelCode
-        fuelPriceLabel.text = fuel.cost?.description
+        fuelPriceLabel.text = fuel.convertedAmount?.description
         stackView.addArrangedSubview(fuelNameLabel)
         stackView.addArrangedSubview(fuelCodeLabel)
         setupFuelIcons(fuel: fuel)

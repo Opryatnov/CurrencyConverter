@@ -53,37 +53,39 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     private func setTabBarAppearance() {
-        let positionX: CGFloat  = 10
-        let positionY: CGFloat  = 14
-        let width = tabBar.bounds.width - positionX * 2
-        let height = tabBar.bounds.height + positionY * 2
-        
-        let roundLayer = CAShapeLayer()
-        
-        let beziePath = UIBezierPath(
-            roundedRect: CGRect(
-                x: positionX,
-                y: UIDevice.hasNotch ? tabBar.bounds.minY - positionY : tabBar.bounds.maxY,
-                width: width,
-                height: height
-            ),
-            cornerRadius: height / 2
-        )
-        
-        roundLayer.path = beziePath.cgPath
-        
-        tabBar.layer.insertSublayer(roundLayer, at: 0)
-        tabBar.itemWidth = width / 5
-        tabBar.itemPositioning = .centered
-        
-        roundLayer.fillColor = UIColor(resource: .white).withAlphaComponent(0.5).cgColor        
+        if UIDevice.hasNotch {
+            let positionX: CGFloat  = 10
+            let positionY: CGFloat  = 14
+            let width = tabBar.bounds.width - positionX * 2
+            let height = tabBar.bounds.height + positionY * 2
+            
+            let roundLayer = CAShapeLayer()
+            
+            let beziePath = UIBezierPath(
+                roundedRect: CGRect(
+                    x: positionX,
+                    y: tabBar.bounds.minY - positionY,
+                    width: width,
+                    height: height
+                ),
+                cornerRadius: height / 2
+            )
+            
+            roundLayer.path = beziePath.cgPath
+            
+            tabBar.layer.insertSublayer(roundLayer, at: 0)
+            tabBar.itemWidth = width / 5
+            tabBar.itemPositioning = .centered
+            roundLayer.fillColor = UIColor(resource: .white).withAlphaComponent(0.5).cgColor
+        }
         
         let selectedColor = UIColor.white
         let unselectedColor = UIColor.black
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
         
-        UITabBar.appearance().backgroundColor = UIColor.clear
+        UITabBar.appearance().backgroundColor = !UIDevice.hasNotch ? UIColor(resource: .white).withAlphaComponent(0.5) : UIColor.clear
+        
         UITabBar.appearance().barTintColor = UIColor.clear
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
