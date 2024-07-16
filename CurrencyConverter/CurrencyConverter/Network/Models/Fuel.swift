@@ -7,12 +7,25 @@
 
 import Foundation
 
-struct Fuel: Decodable {
-    let fuelCode: String?
-    let fuelName_RU: String?
-    let fuelName_ENG: String?
-    let fuelName_BEL: String?
-    let cost: Double?
+struct Fuel: Codable {
+    let name: String?
+    let amount: String?
+    var fuelCode: String?
+    var fuelName_ENG: String?
+    var fuelName_BEL: String?
+    
+    init(name: String?, amount: String?, fuelCode: String? = nil, fuelName_ENG: String? = nil, fuelName_BEL: String? = nil) {
+        self.name = name
+        self.amount = amount
+        self.fuelCode = fuelCode
+        self.fuelName_ENG = fuelName_ENG
+        self.fuelName_BEL = fuelName_BEL
+    }
+    
+    var convertedAmount: Double? {
+        guard let amount = amount else { return nil }
+        return Double(amount)
+    }
     
     var localisedName: String {
         if #available(iOS 16, *) {
@@ -30,7 +43,7 @@ struct Fuel: Decodable {
         case "en":
             tempFuelName = fuelName_ENG
         case "ru":
-            tempFuelName = fuelName_RU
+            tempFuelName = name
         default:
             tempFuelName = fuelName_ENG
         }

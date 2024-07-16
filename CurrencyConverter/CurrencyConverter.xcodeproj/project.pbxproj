@@ -40,6 +40,8 @@
 		2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D373F2BDFE5E50091FF99 /* HUD.swift */; };
 		2C9D37422BDFE7600091FF99 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D37412BDFE7600091FF99 /* loading.json */; };
 		2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */; };
+		2CAE682B2C469610000D95CF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2CAE682A2C469610000D95CF /* SwiftSoup */; };
+		2CAE682D2C469635000D95CF /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE682C2C469635000D95CF /* HTMLParser.swift */; };
 		2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */; };
 		2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB585462BE8ECF000A303BF /* Fuel.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
@@ -116,6 +118,7 @@
 		2C9D373F2BDFE5E50091FF99 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		2C9D37412BDFE7600091FF99 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2CA4D7DE2BE0293D003D3DAA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2CAE682C2C469635000D95CF /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		2CB585462BE8ECF000A303BF /* Fuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9D37112BDFA79B0091FF99 /* Alamofire in Frameworks */,
+				2CAE682B2C469610000D95CF /* SwiftSoup in Frameworks */,
 				2C9D37392BDFC61B0091FF99 /* SnapKit in Frameworks */,
 				2C9D373E2BDFE5CB0091FF99 /* Lottie in Frameworks */,
 			);
@@ -357,6 +361,7 @@
 		2CDCA2C629C3231B0019DFF4 /* FuelCalculatorViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2CAE682C2C469635000D95CF /* HTMLParser.swift */,
 				2C65DE612BEE407900668688 /* Cell */,
 				2CDCA2E129C335D60019DFF4 /* FuelCalculatorViewController.swift */,
 				2CDCA2E229C335D60019DFF4 /* FuelCalculatorViewController.xib */,
@@ -470,6 +475,7 @@
 				2C9D37102BDFA79B0091FF99 /* Alamofire */,
 				2C9D37382BDFC61B0091FF99 /* SnapKit */,
 				2C9D373D2BDFE5CB0091FF99 /* Lottie */,
+				2CAE682A2C469610000D95CF /* SwiftSoup */,
 			);
 			productName = CurrencyConverter;
 			productReference = 2CE3B99429C1C6480032647D /* CurrencyConverter.app */;
@@ -549,6 +555,7 @@
 				2C9D37092BDFA6500091FF99 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2C9D370A2BDFA65F0091FF99 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2C9D373C2BDFE5CB0091FF99 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				2CAE68292C469602000D95CF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 2CE3B99529C1C6480032647D /* Products */;
 			projectDirPath = "";
@@ -629,6 +636,7 @@
 				2CA4D7DF2BE0293D003D3DAA /* BaseTableViewCell.swift in Sources */,
 				2C9D372E2BDFB3300091FF99 /* CountryModel.swift in Sources */,
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
+				2CAE682D2C469635000D95CF /* HTMLParser.swift in Sources */,
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
@@ -1002,6 +1010,14 @@
 				minimumVersion = 4.4.3;
 			};
 		};
+		2CAE68292C469602000D95CF /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1019,6 +1035,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C9D373C2BDFE5CB0091FF99 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		2CAE682A2C469610000D95CF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CAE68292C469602000D95CF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 

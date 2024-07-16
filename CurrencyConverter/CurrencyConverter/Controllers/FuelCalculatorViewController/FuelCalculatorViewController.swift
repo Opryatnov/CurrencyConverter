@@ -1,4 +1,5 @@
 import UIKit
+import WebKit
 
 final class FuelCalculatorViewController: UIViewController {
     
@@ -8,6 +9,8 @@ final class FuelCalculatorViewController: UIViewController {
         static let tableViewBottomInset: CGFloat = 20
         static let tableViewAdditionalInset: CGFloat = 15
         static let tableViewContentInset: CGFloat = 20
+        
+        static let url = URL(string: "https://azs.belorusneft.by/sitebeloil/ru/center/azs/center/fuelandService/price/")
     }
     
     // MARK: UI
@@ -24,7 +27,24 @@ final class FuelCalculatorViewController: UIViewController {
     
     // MARK: Private properties
     
-    private var fuelList: [Fuel]? = []
+    private let webView: WKWebView = {
+        let prefs = WKPreferences()
+        //        prefs.javaScriptEnabled = true
+        let pagePrefs = WKWebpagePreferences()
+        if #available(iOS 14.0, *) {
+            pagePrefs.allowsContentJavaScript = true
+        }
+        let config = WKWebViewConfiguration()
+        config.preferences = prefs
+        config.defaultWebpagePreferences = pagePrefs
+        let webView = WKWebView(frame: .zero, configuration: config)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return webView
+    }()
+    
+    private let parser = HTMLParser()
+    private var fuelList: [Fuel]?
     
     // MARK: Lifecycle
     
@@ -41,22 +61,18 @@ final class FuelCalculatorViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FuelCalculatorCell.self, forCellReuseIdentifier: FuelCalculatorCell.identifier)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NetworkService.shared.fetchFuel { result in
-            switch result {
-            case .success(let fuelList):
-                self.fuelList = fuelList
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.showError(message: error.localizedDescription)
-            }
-        }
+        
+        getFuelList()
     }
     
     // MARK: Private methods
+    
+    private func getFuelList() {
+        HUD.shared.show()
+        guard let url = Constants.url else { return }
+        webView.load(URLRequest(url: url))
+        webView.navigationDelegate = self
+    }
     
     private func showError(message: String?) {
         let closeAction = [
@@ -87,5 +103,41 @@ extension FuelCalculatorViewController: UITableViewDataSource, UITableViewDelega
 //            currency.isSelected.toggle()
 //            tableView.reloadData()
 //        }
+    }
+}
+
+
+extension FuelCalculatorViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("document.body.innerHTML") { [weak self] result, error in
+            guard let html = result as? String, error == nil else {
+                print("Failed to load html")
+                HUD.shared.hide()
+                return
+            }
+            
+            self?.parser.parse(html: html) { [weak self] fuelList in
+                do {
+                    let encoder = JSONEncoder()
+                    let data = try encoder.encode(fuelList)
+                    UserDefaults.standard.set(data, forKey: "fuelList")
+                    
+                    if let data = UserDefaults.standard.data(forKey: "fuelList") {
+                        let decoder = JSONDecoder()
+                        let fuelList = try decoder.decode([Fuel].self, from: data)
+                        self?.fuelList = fuelList
+                        self?.tableView.reloadData()
+                        
+                        HUD.shared.hide()
+                    }
+                } catch {
+                    HUD.shared.hide()
+                    self?.showError(message: error.localizedDescription)
+                }
+            } errorCompletion: { [weak self] error in
+                HUD.shared.hide()
+                self?.showError(message: error?.localizedDescription)
+            }
+        }
     }
 }
