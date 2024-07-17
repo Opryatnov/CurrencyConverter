@@ -52,6 +52,7 @@ final class FuelCalculatorViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
+        configureNavigationBar()
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
@@ -66,6 +67,12 @@ final class FuelCalculatorViewController: UIViewController {
     }
     
     // MARK: Private methods
+    
+    private func configureNavigationBar() {
+        var textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.topItem?.title = LS("FUEL.CALCULATOR.TAB.TITLE")
+    }
     
     private func getFuelList() {
         HUD.shared.show()

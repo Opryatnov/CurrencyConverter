@@ -47,9 +47,9 @@ final class MainTabBarViewController: UITabBarController {
         title: String,
         image: UIImage?
     ) -> UIViewController {
-        
-        viewcontroller.tabBarItem.title = title
-        return viewcontroller
+        let navigationController = UINavigationController(rootViewController: viewcontroller)
+        navigationController.tabBarItem.title = title
+        return navigationController
     }
     
     private func setTabBarAppearance() {

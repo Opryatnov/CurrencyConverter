@@ -13,5 +13,14 @@ final class ConverterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+    }
+    
+    // MARK: Private methods
+    
+    private func configureNavigationBar() {
+        var textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.topItem?.title = LS("CONVERTER.TAB.TITLE")
     }
 }

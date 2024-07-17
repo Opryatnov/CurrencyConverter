@@ -46,6 +46,7 @@ final class CurrencyListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
+        configureNavigationBar()
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
@@ -63,6 +64,12 @@ final class CurrencyListViewController: UIViewController {
     }
     
     // MARK: Private methods
+    
+    private func configureNavigationBar() {
+        var textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.topItem?.title = LS("CURRENCY.LIST.TAB.TITLE")
+    }
     
     private func fetchCurrencyList() {
         NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
