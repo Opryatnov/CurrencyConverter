@@ -134,7 +134,6 @@ extension FuelCalculatorViewController: WKNavigationDelegate {
                         let fuelList = try decoder.decode([Fuel].self, from: data)
                         self?.fuelList = fuelList
                         self?.tableView.reloadData()
-                        
                         HUD.shared.hide()
                     }
                 } catch {

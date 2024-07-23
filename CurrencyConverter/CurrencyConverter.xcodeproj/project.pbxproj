@@ -66,6 +66,7 @@
 		2CE3B9D629C30C0F0032647D /* UITableView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */; };
 		2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9DA29C30E6C0032647D /* NibLoad+Reuse.swift */; };
 		2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */; };
+		2CEF5CBF2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF5CBE2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		2CE3B9CF29C30B7F0032647D /* UITableView+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Cells.swift"; sourceTree = "<group>"; };
 		2CE3B9DA29C30E6C0032647D /* NibLoad+Reuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NibLoad+Reuse.swift"; sourceTree = "<group>"; };
 		2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Xib.swift"; sourceTree = "<group>"; };
+		2CEF5CBE2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTableviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 		2CDCA2C429C322FC0019DFF4 /* ConverterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2CEF5CBD2C4E7EEE00F9489C /* Cell */,
 				2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */,
 				2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */,
 			);
@@ -453,6 +456,14 @@
 				2CE3B9DB29C30E6C0032647D /* UIView+Xib.swift */,
 			);
 			path = "UIKit+Tools";
+			sourceTree = "<group>";
+		};
+		2CEF5CBD2C4E7EEE00F9489C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2CEF5CBE2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -637,6 +648,7 @@
 				2C9D372E2BDFB3300091FF99 /* CountryModel.swift in Sources */,
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
 				2CAE682D2C469635000D95CF /* HTMLParser.swift in Sources */,
+				2CEF5CBF2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift in Sources */,
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,

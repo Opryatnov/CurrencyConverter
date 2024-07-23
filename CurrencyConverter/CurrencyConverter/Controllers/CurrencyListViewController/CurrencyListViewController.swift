@@ -72,18 +72,11 @@ final class CurrencyListViewController: UIViewController {
     }
     
     private func fetchCurrencyList() {
-        NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
-            switch result {
-            case .success(let currencies):
-                self.currencies = currencies
-                self.favoriteCurrenciesCode?.forEach { code in
-                    self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
-                }
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.showError(message: error.localizedDescription)
-            }
+        self.currencies = NetworkService.shared.allCurrencies
+        self.favoriteCurrenciesCode?.forEach { code in
+            self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
         }
+        self.tableView.reloadData()
     }
     
     private func showError(message: String?) {

@@ -21,6 +21,8 @@ final class CurrencyData: Decodable {
     var nameBelarusian: String?
     var nameEnglish: String?
     
+    var writeOfAmount: Double?
+    
     var localisedName: String {
         if #available(iOS 16, *) {
             return setCurrencyName(language: Locale.current.language.languageCode?.identifier ?? "")
@@ -92,5 +94,12 @@ final class FullCurrencyData: Decodable {
         case periodicity = "Cur_Periodicity"
         case dateStart = "Cur_DateStart"
         case dateEnd = "Cur_DateEnd"
+    }
+}
+
+extension CurrencyData: Equatable {
+    static func == (lhs: CurrencyData, rhs: CurrencyData) -> Bool {
+        lhs.currencyID == rhs.currencyID
+        && lhs.currencyName == rhs.currencyName
     }
 }

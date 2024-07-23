@@ -14,11 +14,11 @@ final class NetworkService {
     private init() {}
     
     var fuelData: [Fuel]? = []
+    var allCurrencies: [CurrencyData]?
     
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
         HUD.shared.show()
-        CurrenciesManager.shared.fetchCurrencies()
         networkProvider?.fetchAllCurrencies(completion: { result in
             switch result {
             case .success(let currencies):
@@ -38,6 +38,7 @@ final class NetworkService {
                         }
                     }
                     HUD.shared.hide()
+                    self.allCurrencies = currencies
                     completion(.success(currencies))
                 }
             case .failure(let error):
