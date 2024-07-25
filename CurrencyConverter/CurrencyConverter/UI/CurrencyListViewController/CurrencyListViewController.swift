@@ -21,13 +21,13 @@ final class CurrencyListViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
         tableView.backgroundColor = UIColor(resource: .darkGray6)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
+        tableView.showsVerticalScrollIndicator = false
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.leastNormalMagnitude, height: CGFloat.leastNormalMagnitude))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.leastNormalMagnitude, height: CGFloat.leastNormalMagnitude))
         
         return tableView
     }()
@@ -47,9 +47,14 @@ final class CurrencyListViewController: UIViewController {
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
         configureNavigationBar()
+//        tableView.snp.makeConstraints {
+//            $0.leading.trailing.equalToSuperview()
+//            $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
+//            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + Constants.tableViewAdditionalInset)
+//        }
         tableView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
             $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + Constants.tableViewAdditionalInset)
         }
         tableView.contentInset.bottom = Constants.tableViewContentInset

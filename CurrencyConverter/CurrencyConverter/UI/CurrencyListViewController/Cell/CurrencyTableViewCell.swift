@@ -75,21 +75,24 @@ final class CurrencyTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    private let backView: Gradient = {
-        let view = Gradient()
-        let locations: [CGFloat] = [0.0, 1.0]
-        let colors = [UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).cgColor, UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).cgColor] as CFArray
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
+    private let backView: UIView = {
+//        let locations: [CGFloat] = [0.0, 1.0]
+//        let colors = [UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).cgColor, UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).cgColor] as CFArray
+//        let colorSpace = CGColorSpaceCreateDeviceRGB()
+//        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
+//        
+//        view.startColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).withAlphaComponent(0.3)
+//        view.endColor = UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).withAlphaComponent(0.3)
+//        
+//        view.startLocation = 0.0
+//        view.endLocation = 1.0
+//        view.layer.cornerRadius = 20
+//        view.layer.borderWidth = 1
+//        view.layer.borderColor = UIColor(resource: .gold1).cgColor
         
-        view.startColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 0).withAlphaComponent(0.3)
-        view.endColor = UIColor(red: 0.04, green: 0.52, blue: 0.89, alpha: 0.16).withAlphaComponent(0.3)
-        
-        view.startLocation = 0.0
-        view.endLocation = 1.0
+        let view = UIView()
+        view.backgroundColor = UIColor(resource: .darkGray5)
         view.layer.cornerRadius = 20
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(resource: .gold1).cgColor
         
         return view
     }()
