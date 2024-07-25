@@ -31,17 +31,31 @@ final class CurrencyData: Decodable {
         }
     }
     
+    init(currencyID: Int?, date: String?, currencyAbbreviation: String?, currencyScale: Int?, currencyName: String?, currencyOfficialRate: Double?, currencyImage: UIImage? = nil, isSelected: Bool, name: String? = nil, nameBelarusian: String? = nil, nameEnglish: String? = nil, writeOfAmount: Double? = nil) {
+        self.currencyID = currencyID
+        self.date = date
+        self.currencyAbbreviation = currencyAbbreviation
+        self.currencyScale = currencyScale
+        self.currencyName = currencyName
+        self.currencyOfficialRate = currencyOfficialRate
+        self.currencyImage = currencyImage
+        self.isSelected = isSelected
+        self.name = name
+        self.nameBelarusian = nameBelarusian
+        self.nameEnglish = nameEnglish
+        self.writeOfAmount = writeOfAmount
+    }
+    
     func setCurrencyName(language: String) -> String {
         var tempCurrencyName: String?
-        switch language {
-        case "be":
+        if language.contains("be") {
             tempCurrencyName = nameBelarusian
-        case "en":
+        } else if language.contains("en") {
             tempCurrencyName = nameEnglish
-        case "ru":
+        } else if language.contains("ru") {
             tempCurrencyName = name
-        default:
-            tempCurrencyName = currencyName
+        } else {
+            tempCurrencyName = nameEnglish
         }
         return tempCurrencyName ?? ""
     }

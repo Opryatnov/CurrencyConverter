@@ -19,6 +19,7 @@ final class NetworkService {
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
         HUD.shared.show()
+        CurrenciesManager.shared.fetchCurrencies()
         networkProvider?.fetchAllCurrencies(completion: { result in
             switch result {
             case .success(let currencies):

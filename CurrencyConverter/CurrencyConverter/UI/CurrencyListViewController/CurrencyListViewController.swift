@@ -66,7 +66,7 @@ final class CurrencyListViewController: UIViewController {
     // MARK: Private methods
     
     private func configureNavigationBar() {
-        var textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationController?.navigationBar.topItem?.title = LS("CURRENCY.LIST.TAB.TITLE")
     }

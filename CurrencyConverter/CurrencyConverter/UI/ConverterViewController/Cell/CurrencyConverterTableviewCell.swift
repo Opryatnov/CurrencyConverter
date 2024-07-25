@@ -77,8 +77,8 @@ final class CurrencyConverterTableviewCell: BaseTableViewCell {
     
     private let textField: UITextField = {
         let textField = UITextField()
-        textField.keyboardType = .numberPad
-        textField.text = "0"
+        textField.keyboardType = .decimalPad
+        textField.text = "0.00"
         textField.textColor = .white
         textField.textAlignment = .right
         
@@ -111,6 +111,7 @@ final class CurrencyConverterTableviewCell: BaseTableViewCell {
         self.currency = currency
         currencyIconImageView.image = currency.currencyImage
         currencyCodeLabel.text = currency.currencyAbbreviation
+        textField.text = currency.writeOfAmount?.description.toAmountFormat() ?? "0.00"
         textField.delegate = self
     }
     
@@ -168,7 +169,12 @@ extension CurrencyConverterTableviewCell: UITextFieldDelegate {
         currencyView.layer.borderWidth = 0
         currencyView.layer.borderColor = UIColor.clear.cgColor
         if textField.text?.isEmpty == true {
-            textField.text = "0"
+            textField.text = "0.00"
+        } else {
+            let receiveAmountString = textField.text?.replacingOccurrences(of: ",", with: "") ?? ""
+            textField.text = receiveAmountString.toAmountFormat()
+            currency?.writeOfAmount = Double(receiveAmountString)?.round()
+            delegate?.didChangeAmount(currency: currency)
         }
     }
     
@@ -185,95 +191,110 @@ extension CurrencyConverterTableviewCell: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let currentText = textField.text ?? ""
-        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        let inputValidator = ValidationFieldType.balanceInputTwoNumbersCurrencyAfterPoint
         
-        if newText.isEmpty {
-            return true
+        guard let textFieldText = textField.text,
+              let range = Range(range, in: textFieldText) else { return true }
+        var updatedText = textFieldText.replacingCharacters(in: range, with: string)
+
+        if updatedText.suffix(1) == "," {
+            let lastIndex = updatedText.index(before: updatedText.endIndex)
+            updatedText.replaceSubrange(lastIndex...lastIndex, with: ["."])
         }
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        formatter.decimalSeparator = "."
-        formatter.groupingSeparator = ","
-        formatter.usesGroupingSeparator = true
-        
-        let cleanedText = newText.replacingOccurrences(of: ",", with: "")
-        
-        if let number = Double(cleanedText), number <= 999999.99 {
-            if let dotIndex = cleanedText.firstIndex(of: ".") {
-                let distance = cleanedText.distance(from: dotIndex, to: cleanedText.endIndex)
-                if distance > 3 {
-                    return false
-                }
+        let balanceString = updatedText.replacingOccurrences(of: ",", with: "")
+
+        let result = Validator.isValid(balanceString, type: inputValidator)
+
+        if result {
+            let balance = Decimal(string: balanceString) ?? 0
+            let lastDot: String
+            if balanceString.suffix(1) == "." {
+                lastDot = "."
+            } else {
+                lastDot = ""
             }
-            
-            if let formattedText = formatter.string(from: NSNumber(value: number)) {
-                let oldCursorPosition = textField.offset(from: textField.beginningOfDocument, to: textField.selectedTextRange!.start)
-                let newCursorPosition = calculateNewCursorPosition(oldText: currentText, newText: formattedText, oldCursorPosition: oldCursorPosition, range: range, replacementString: string)
-                
-                textField.text = formattedText
-                
-                if let startPosition = textField.position(from: textField.beginningOfDocument, offset: newCursorPosition) {
-                    textField.selectedTextRange = textField.textRange(from: startPosition, to: startPosition)
-                }
-                
-                let formattedText = textField.text?.replacingOccurrences(of: ",", with: "")
-                currency?.writeOfAmount = Double(formattedText ?? "")
-                delegate?.didChangeAmount(currency: currency)
-                return false
+            var minimumFractionDigits = 0
+            if let dotRange = balanceString.range(of: ".") {
+                let substring = balanceString[dotRange.upperBound...]
+                minimumFractionDigits = substring.count
             }
+            let finalString = balance.formattedWithSeparator(minimumFractionDigits) + lastDot
+            textField.text = finalString
         }
         
-        if let _ = cleanedText.range(of: #"^\d{0,6}(\.\d{0,2})?$"#, options: .regularExpression) {
-            return true
-        }
-        let formattedText = textField.text?.replacingOccurrences(of: ",", with: "")
-        currency?.writeOfAmount = Double(formattedText ?? "")
+        let receiveAmountString = textField.text?.replacingOccurrences(of: ",", with: "") ?? ""
+        currency?.writeOfAmount = Double(receiveAmountString)?.round()
         delegate?.didChangeAmount(currency: currency)
         return false
+        
+        
+        
+//        let currentText = textField.text ?? ""
+//        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+//        
+//        if newText.isEmpty {
+//            return true
+//        }
+//        
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .decimal
+//        formatter.maximumFractionDigits = 2
+//        formatter.decimalSeparator = "."
+//        formatter.groupingSeparator = ","
+//        formatter.usesGroupingSeparator = true
+//        
+//        let cleanedText = newText.replacingOccurrences(of: ",", with: "")
+//        
+//        if let number = Double(cleanedText), number <= 999999.99 {
+//            if let dotIndex = cleanedText.firstIndex(of: ".") {
+//                let distance = cleanedText.distance(from: dotIndex, to: cleanedText.endIndex)
+//                if distance > 3 {
+//                    return false
+//                }
+//            }
+//            
+//            if let formattedText = formatter.string(from: NSNumber(value: number)) {
+//                let oldCursorPosition = textField.offset(from: textField.beginningOfDocument, to: textField.selectedTextRange!.start)
+//                let newCursorPosition = calculateNewCursorPosition(oldText: currentText, newText: formattedText, oldCursorPosition: oldCursorPosition, range: range, replacementString: string)
+//                
+//                textField.text = formattedText
+//                
+//                if let startPosition = textField.position(from: textField.beginningOfDocument, offset: newCursorPosition) {
+//                    textField.selectedTextRange = textField.textRange(from: startPosition, to: startPosition)
+//                }
+//                
+//                let formattedText = textField.text?.replacingOccurrences(of: ",", with: "")
+//                currency?.writeOfAmount = Double(formattedText ?? "")
+//                delegate?.didChangeAmount(currency: currency)
+//                return false
+//            }
+//        }
+//        
+//        if let _ = cleanedText.range(of: #"^\d{0,6}(\.\d{0,2})?$"#, options: .regularExpression) {
+//            return true
+//        }
+//        let formattedText = textField.text?.replacingOccurrences(of: ",", with: "")
+//        currency?.writeOfAmount = Double(formattedText ?? "")
+//        delegate?.didChangeAmount(currency: currency)
+//        return false
     }
-    
-    private func calculateNewCursorPosition(oldText: String, newText: String, oldCursorPosition: Int, range: NSRange, replacementString: String) -> Int {
-        let originalText = (oldText as NSString).replacingCharacters(in: range, with: replacementString)
-        let offset = originalText.count - oldText.count
-        
-        var newCursorPosition = oldCursorPosition + offset
-        
-        var oldGroupingSeparatorCount = 0
-        var newGroupingSeparatorCount = 0
-        
-        for (oldChar, newChar) in zip(oldText, newText) {
-            if oldChar == "," { oldGroupingSeparatorCount += 1 }
-            if newChar == "," { newGroupingSeparatorCount += 1 }
-        }
-        
-        newCursorPosition += (newGroupingSeparatorCount - oldGroupingSeparatorCount)
-        
-        return newCursorPosition
-    }
-}
-
-extension UITextField {
-    
-    func addDoneButtonOnKeyboard() {
-        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        doneToolbar.barStyle = .default
-        
-        let image = UIImage(named: "ok_icon")?.withRenderingMode(.alwaysOriginal)
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(self.doneButtonAction))
-        
-        let items = [flexSpace, done]
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.inputAccessoryView = doneToolbar
-    }
-    
-    @objc func doneButtonAction() {
-        self.resignFirstResponder()
-    }
+//    
+//    private func calculateNewCursorPosition(oldText: String, newText: String, oldCursorPosition: Int, range: NSRange, replacementString: String) -> Int {
+//        let originalText = (oldText as NSString).replacingCharacters(in: range, with: replacementString)
+//        let offset = originalText.count - oldText.count
+//        
+//        var newCursorPosition = oldCursorPosition + offset
+//        
+//        var oldGroupingSeparatorCount = 0
+//        var newGroupingSeparatorCount = 0
+//        
+//        for (oldChar, newChar) in zip(oldText, newText) {
+//            if oldChar == "," { oldGroupingSeparatorCount += 1 }
+//            if newChar == "," { newGroupingSeparatorCount += 1 }
+//        }
+//        
+//        newCursorPosition += (newGroupingSeparatorCount - oldGroupingSeparatorCount)
+//        
+//        return newCursorPosition
+//    }
 }

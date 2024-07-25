@@ -21,6 +21,12 @@
 		2C828C072BE50A3A00C5D2F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C828C092BE50A3A00C5D2F0 /* Localizable.strings */; };
 		2C828C102BE50E8400C5D2F0 /* allCurrenciesWithLanguages.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C828C0F2BE50E8400C5D2F0 /* allCurrenciesWithLanguages.json */; };
 		2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C828C112BE5166000C5D2F0 /* CurrenciesManager.swift */; };
+		2C8A91732C524D6900A84B12 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A91722C524D6900A84B12 /* String+.swift */; };
+		2C8A91952C526F9F00A84B12 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A91942C526F9F00A84B12 /* Validator.swift */; };
+		2C8A91972C526FC400A84B12 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A91962C526FC400A84B12 /* TextField+.swift */; };
+		2C8A91992C526FE000A84B12 /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A91982C526FE000A84B12 /* Decimal+.swift */; };
+		2C8A919B2C526FF400A84B12 /* Formatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A919A2C526FF400A84B12 /* Formatter+.swift */; };
+		2C8A919D2C52703000A84B12 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A919C2C52702F00A84B12 /* Double+.swift */; };
 		2C92A8BC2BE3CED200774239 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C92A8BB2BE3CED200774239 /* Colors.xcassets */; };
 		2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D37072BDF94D40091FF99 /* Gradient.swift */; };
 		2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */; };
@@ -103,6 +109,12 @@
 		2C828C0E2BE50B2500C5D2F0 /* be-BY */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "be-BY"; path = "be-BY.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2C828C0F2BE50E8400C5D2F0 /* allCurrenciesWithLanguages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allCurrenciesWithLanguages.json; sourceTree = "<group>"; };
 		2C828C112BE5166000C5D2F0 /* CurrenciesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesManager.swift; sourceTree = "<group>"; };
+		2C8A91722C524D6900A84B12 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		2C8A91942C526F9F00A84B12 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		2C8A91962C526FC400A84B12 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
+		2C8A91982C526FE000A84B12 /* Decimal+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
+		2C8A919A2C526FF400A84B12 /* Formatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+.swift"; sourceTree = "<group>"; };
+		2C8A919C2C52702F00A84B12 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		2C92A8BB2BE3CED200774239 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2C9D37072BDF94D40091FF99 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		2C9D370B2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRequestProviderImpl.swift; path = CurrencyConverter/Network/ProtocolImpl/NetworkRequestProviderImpl.swift; sourceTree = SOURCE_ROOT; };
@@ -242,6 +254,7 @@
 				2C9D37072BDF94D40091FF99 /* Gradient.swift */,
 				2C9D373F2BDFE5E50091FF99 /* HUD.swift */,
 				2C828BF72BE5024E00C5D2F0 /* Localization.swift */,
+				2C8A91942C526F9F00A84B12 /* Validator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,7 +341,7 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		2CDCA2C229C31F820019DFF4 /* Controllers */ = {
+		2CDCA2C229C31F820019DFF4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				2C4E52532BEBA2AC0027D041 /* CurrencyDetailsViewController */,
@@ -338,7 +351,7 @@
 				2CDCA2C429C322FC0019DFF4 /* ConverterViewController */,
 				2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */,
 			);
-			path = Controllers;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		2CDCA2C429C322FC0019DFF4 /* ConverterViewController */ = {
@@ -404,7 +417,7 @@
 				2C9D37062BDF94C70091FF99 /* Helpers */,
 				2C9D37312BDFC23C0091FF99 /* Files */,
 				2C9D37222BDFAF320091FF99 /* Network */,
-				2CDCA2C229C31F820019DFF4 /* Controllers */,
+				2CDCA2C229C31F820019DFF4 /* UI */,
 				2CE3B99729C1C6480032647D /* AppDelegate.swift */,
 				2CE3B99929C1C6480032647D /* SceneDelegate.swift */,
 				2CE3B9A829C1C6490032647D /* Info.plist */,
@@ -445,6 +458,11 @@
 				2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */,
 				2C68A8662BF35DCD00323440 /* UIApplication+.swift */,
 				2C68A86B2C25806600323440 /* Array+.swift */,
+				2C8A91722C524D6900A84B12 /* String+.swift */,
+				2C8A91962C526FC400A84B12 /* TextField+.swift */,
+				2C8A91982C526FE000A84B12 /* Decimal+.swift */,
+				2C8A919A2C526FF400A84B12 /* Formatter+.swift */,
+				2C8A919C2C52702F00A84B12 /* Double+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -621,17 +639,21 @@
 				2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */,
 				2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */,
 				2CE3B9D029C30B7F0032647D /* UICollectionView+Cells.swift in Sources */,
+				2C8A919D2C52703000A84B12 /* Double+.swift in Sources */,
 				2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */,
 				2C9D37242BDFAF490091FF99 /* CurrencyData.swift in Sources */,
 				2C9D372A2BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift in Sources */,
 				2C9D37282BDFB09B0091FF99 /* NetworkService.swift in Sources */,
+				2C8A91972C526FC400A84B12 /* TextField+.swift in Sources */,
 				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
 				2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */,
 				2C65DE632BEE408A00668688 /* FuelCalculatorCell.swift in Sources */,
 				2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */,
 				2C9D37342BDFC2690091FF99 /* UIViewController+.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
+				2C8A91992C526FE000A84B12 /* Decimal+.swift in Sources */,
 				2C68A86C2C25806600323440 /* Array+.swift in Sources */,
+				2C8A919B2C526FF400A84B12 /* Formatter+.swift in Sources */,
 				2C7A81682BE11FA30071934F /* UIView+.swift in Sources */,
 				2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */,
 				2C68A8652BF35D8B00323440 /* Navigation.swift in Sources */,
@@ -649,6 +671,7 @@
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
 				2CAE682D2C469635000D95CF /* HTMLParser.swift in Sources */,
 				2CEF5CBF2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift in Sources */,
+				2C8A91952C526F9F00A84B12 /* Validator.swift in Sources */,
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
@@ -658,6 +681,7 @@
 				2C828BF82BE5024E00C5D2F0 /* Localization.swift in Sources */,
 				2C9D37402BDFE5E50091FF99 /* HUD.swift in Sources */,
 				2C9D37372BDFC5A10091FF99 /* CurrencyTableViewCell.swift in Sources */,
+				2C8A91732C524D6900A84B12 /* String+.swift in Sources */,
 				2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
