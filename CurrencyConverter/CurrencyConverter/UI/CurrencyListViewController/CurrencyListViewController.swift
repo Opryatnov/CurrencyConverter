@@ -46,6 +46,7 @@ final class CurrencyListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
+        configureNavigationBar()
         tableView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
@@ -64,19 +65,18 @@ final class CurrencyListViewController: UIViewController {
     
     // MARK: Private methods
     
+    private func configureNavigationBar() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.topItem?.title = LS("CURRENCY.LIST.TAB.TITLE")
+    }
+    
     private func fetchCurrencyList() {
-        NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
-            switch result {
-            case .success(let currencies):
-                self.currencies = currencies
-                self.favoriteCurrenciesCode?.forEach { code in
-                    self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
-                }
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.showError(message: error.localizedDescription)
-            }
+        self.currencies = NetworkService.shared.allCurrencies
+        self.favoriteCurrenciesCode?.forEach { code in
+            self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
         }
+        self.tableView.reloadData()
     }
     
     private func showError(message: String?) {

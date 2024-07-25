@@ -8,6 +8,9 @@
 import UIKit
 
 final class CountriesManager {
+    
+    static var countries: Countries?
+    
     static func fetchAllCountries(completion: @escaping (Countries?) -> Void) {
         if let path = Bundle.main.path(forResource: "countries", ofType: "json") {
             do {
@@ -16,6 +19,7 @@ final class CountriesManager {
                 let countries = Countries(countries: jList)
                 DispatchQueue.main.async {
                     completion(countries)
+                    self.countries = countries
                 }
                 
             } catch let error {
