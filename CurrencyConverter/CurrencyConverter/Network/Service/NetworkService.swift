@@ -40,6 +40,21 @@ final class NetworkService {
                     }
                     HUD.shared.hide()
                     self.allCurrencies = currencies
+                    let belarusCurrency: CurrencyData = CurrencyData(
+                        currencyID: 0,
+                        date: nil,
+                        currencyAbbreviation: "BYN",
+                        currencyScale: 1,
+                        currencyName: "Belarusian Ruble",
+                        currencyOfficialRate: 0,
+                        currencyImage: countries?.countries?.first(where: {$0.code == "BYN"})?.decodedImage,
+                        isSelected: false,
+                        name: "Белорусский рубль",
+                        nameBelarusian: "Беларускі рубель",
+                        nameEnglish: "Belarusian Ruble",
+                        writeOfAmount: nil
+                    )
+                    self.allCurrencies?.insert(belarusCurrency, at: 0)
                     completion(.success(currencies))
                 }
             case .failure(let error):

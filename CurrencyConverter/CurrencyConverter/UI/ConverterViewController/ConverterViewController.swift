@@ -16,6 +16,7 @@ final class ConverterViewController: UIViewController {
         static let tableViewBottomInset: CGFloat = 20
         static let tableViewAdditionalInset: CGFloat = 15
         static let tableViewContentInset: CGFloat = 20
+        static let bynCode: String = "BYN"
     }
     
     // MARK: UI
@@ -59,23 +60,7 @@ final class ConverterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            let belarusCurrency: CurrencyData = CurrencyData(
-                currencyID: 0,
-                date: nil,
-                currencyAbbreviation: "BYN",
-                currencyScale: 1,
-                currencyName: "BYN",
-                currencyOfficialRate: 0,
-                currencyImage: CountriesManager.countries?.countries?.first(where: {$0.code == "BYN"})?.decodedImage,
-                isSelected: false,
-                name: "Belarusian Ruble",
-                nameBelarusian: "Belarusian Ruble",
-                nameEnglish: "Belarusian Ruble",
-                writeOfAmount: 0
-            )
-        
         currencies = []
-        currencies?.append(belarusCurrency)
         self.favoriteCurrenciesCode?.forEach { code in
             if let favoriteCurrency = NetworkService.shared.allCurrencies?.first(where: { $0.currencyID == code}) {
                 if self.currencies?.contains(favoriteCurrency) == false {
@@ -83,6 +68,7 @@ final class ConverterViewController: UIViewController {
                 }
             }
         }
+        currencies = currencies?.sorted(by: {$0.currencyAbbreviation ?? "" < $1.currencyAbbreviation ?? ""})
         self.tableView.reloadData()
     }
     
@@ -116,25 +102,28 @@ extension ConverterViewController: UITableViewDataSource, UITableViewDelegate {
 extension ConverterViewController: CurrencyDataModelDelegate {
     func didChangeAmount(currency: CurrencyData?) {
         var bynWriteOfAmount: Double = 0
-        if currency?.currencyAbbreviation != "BYN" {
-            if let writeOfAmount = currency?.writeOfAmount, let currencyOfficialRate = currency?.currencyOfficialRate {
-                bynWriteOfAmount = currencyOfficialRate * writeOfAmount
-                currencies?.first(where: {$0.currencyAbbreviation == "BYN"})?.writeOfAmount = bynWriteOfAmount
+        var otherWriteOfAmount: Double = 0
+        
+        if let writeOfAmount = currency?.writeOfAmount, let currencyOfficialRate = currency?.currencyOfficialRate,
+           let currentCurrencyScale = currency?.currencyScale {
+            bynWriteOfAmount = currency?.currencyAbbreviation != Constants.bynCode ? (currencyOfficialRate * writeOfAmount) : (currency?.writeOfAmount ?? 0)
+            otherWriteOfAmount = currency?.currencyAbbreviation != Constants.bynCode ? (currencyOfficialRate * writeOfAmount) : (currency?.writeOfAmount ?? 0)
+            currencies?.first(where: {$0.currencyAbbreviation == Constants.bynCode})?.writeOfAmount = bynWriteOfAmount / Double(currentCurrencyScale)
+        }
+        currencies?.enumerated().forEach { (index, currencyModel) in
+            guard currencyModel.currencyAbbreviation != currency?.currencyAbbreviation,
+                  let writeOfAmount = currency?.writeOfAmount,
+                  let currencyOfficialRate = currencyModel.currencyOfficialRate,
+                  let scale = currencyModel.currencyScale,
+                  let currentCurrencyScale = currency?.currencyScale else { return }
+            if currencyModel.currencyAbbreviation != Constants.bynCode {
+                let result = (otherWriteOfAmount / currencyOfficialRate * Double(scale)) / Double(currentCurrencyScale)
+                currencyModel.writeOfAmount = result
             }
-            currencies?.enumerated().forEach { (index, currencyModel) in
-                guard currencyModel.currencyAbbreviation != currency?.currencyAbbreviation,
-                      let writeOfAmount = currency?.writeOfAmount,
-                      let currencyOfficialRate = currencyModel.currencyOfficialRate,
-                      let scale = currencyModel.currencyScale else { return }
-                if currencyModel.currencyAbbreviation != "BYN" {
-                    let result = bynWriteOfAmount / currencyOfficialRate * Double(scale)
-                    currencyModel.writeOfAmount = result
-                }
-                tableView.beginUpdates()
-                let indexPath = IndexPath(row: index, section: 0)
-                tableView.reloadRows(at: [indexPath], with: .none)
-                tableView.endUpdates()
-            }
+            tableView.beginUpdates()
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+            tableView.endUpdates()
         }
     }
 }
