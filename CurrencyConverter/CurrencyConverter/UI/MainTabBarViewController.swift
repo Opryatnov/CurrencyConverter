@@ -34,12 +34,11 @@ final class MainTabBarViewController: UITabBarController {
                 image: UIImage(named: .currencyUnselectedImage)
             ),
             setupVieController(
-                viewcontroller: FuelCalculatorViewController(),
-                title: LS("FUEL.CALCULATOR.TAB.TITLE"),
-                image: UIImage(named: .fuelUnselected)
+                viewcontroller: CurrencyDetailsViewController(),
+                title: LS("CURRENCIES.TAB.TITLE"),
+                image: UIImage(named: .analysisUnSelected)
             )
         ]
-        
     }
     
     private func setupVieController(
@@ -96,8 +95,8 @@ final class MainTabBarViewController: UITabBarController {
         let currencyUnselectedImage: UIImage = UIImage(named: .currencyUnselectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         let currencySelectedImage: UIImage = UIImage(named: .currencySelectedImage)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
-        let fuelUnselectedImage: UIImage = UIImage(named: .fuelUnselected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        let fuelSelectedImage: UIImage = UIImage(named: .fuelSelected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let analyticsUnselectedImage: UIImage = UIImage(named: .analysisUnSelected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let analyticsSelectedImage: UIImage = UIImage(named: .analysisSelected)!.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
         if let items = tabBar.items {
             items[0].image = homeUnselectedImage
@@ -106,8 +105,8 @@ final class MainTabBarViewController: UITabBarController {
             items[1].image = currencyUnselectedImage
             items[1].selectedImage = currencySelectedImage
             
-            items[2].image = fuelUnselectedImage
-            items[2].selectedImage = fuelSelectedImage
+            items[2].image = analyticsUnselectedImage
+            items[2].selectedImage = analyticsSelectedImage
         }
     }
 }

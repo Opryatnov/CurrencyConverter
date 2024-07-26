@@ -9,6 +9,10 @@ import Alamofire
 import UIKit
 
 final class NetworkRequestProviderMockImpl: NetworkRequestProvider {
+    func fetchRates(currencyCode: Int, startDate: String, endDate: String, completion: @escaping (Result<[DynamicCources]?, any Error>) -> ()) {
+        
+    }
+    
     func fetchAllCurrencies(completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
         if let path = Bundle.main.path(forResource: "currencies", ofType: "json") {
             do {

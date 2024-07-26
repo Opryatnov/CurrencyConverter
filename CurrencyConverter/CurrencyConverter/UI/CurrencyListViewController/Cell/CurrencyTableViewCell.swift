@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+enum CurrencyType {
+    case currencyList
+    case currencyDetails
+}
+
 final class CurrencyTableViewCell: BaseTableViewCell {
     
     // MARK: Constants
@@ -91,7 +96,6 @@ final class CurrencyTableViewCell: BaseTableViewCell {
 //        view.layer.borderColor = UIColor(resource: .gold1).cgColor
         
         let view = UIView()
-        view.backgroundColor = UIColor(resource: .darkGray5)
         view.layer.cornerRadius = 20
         
         return view
@@ -103,14 +107,15 @@ final class CurrencyTableViewCell: BaseTableViewCell {
         
     // MARK: Internal methods
     
-    func fill(currency: CurrencyData) {
+    func fill(currency: CurrencyData, currencyType: CurrencyType) {
         currencyIconImageView.image = currency.currencyImage
         currencyNameLabel.text = currency.localisedName
         currencyCodeLabel.text = currency.currencyAbbreviation
-        favoriteImageView.image = currency.isSelected ? UIImage(named: "selected") : UIImage(named: "nonSelected")
+        
+        currencyType == .currencyList ? configureFavoriteImage(isSelected: currency.isSelected) : configureNextStepImage()
     }
     
-    // MARK: Private methods
+    // MARK: Override methods
     
     override func configureViews() {
         backgroundColor = .clear
@@ -156,5 +161,19 @@ final class CurrencyTableViewCell: BaseTableViewCell {
             $0.leading.equalTo(currencyView.snp.trailing).inset(-Constants.FavoritesImageView.leftInset)
             $0.trailing.equalToSuperview().inset(Constants.FavoritesImageView.rightInset)
         }
+    }
+    
+    // MARK: Private methods
+    
+    private func configureFavoriteImage(isSelected: Bool) {
+        backView.backgroundColor = UIColor(resource: .darkGray5)
+        favoriteImageView.image = isSelected ? UIImage(named: "selected") : UIImage(named: "nonSelected")
+    }
+    
+    private func configureNextStepImage() {
+        backView.layer.borderColor = UIColor(resource: .darkGray3).cgColor
+        backView.layer.borderWidth = 1
+        backView.backgroundColor = UIColor(resource: .darkGray5)
+        favoriteImageView.image = UIImage(named: "rightArrow")
     }
 }

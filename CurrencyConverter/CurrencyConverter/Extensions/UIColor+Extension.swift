@@ -134,6 +134,8 @@ enum ImageName: String {
     case fuelDiesel = "diesel-fuel"
     case fuelEco = "fuel-eco"
     case fuelGas = "fuel-gas"
+    case analysisSelected = "analysisSelected"
+    case analysisUnSelected = "analysisUnSelected"
 }
 
 // MARK: - UIKit Assets Initialization
