@@ -7,6 +7,8 @@
 
 import UIKit
 
+public protocol PageContext {}
+
 final class Navigation {
     
     static var currentController: UIViewController? {

@@ -1,10 +1,13 @@
 // MARK: Tab bar titles
 
 "CONVERTER.TAB.TITLE" = "Канвэртар";
-"CURRENCY.LIST.TAB.TITLE" = "Валюты";
+"CURRENCY.LIST.TAB.TITLE" = "Спіс валют";
 "FUEL.CALCULATOR.TAB.TITLE" = "Калькулятар паліва";
 "SPLASH.MORNING.TITLE" = "Добрай раніцы";
 "SPLASH.DAY.TITLE" = "Добры дзень";
 "SPLASH.EVENING.TITLE" = "Добры вечар";
 "SPLASH.NIGHT.TITLE" = "Добрай ночы";
 "ALERT.CLOSE.BUTTON" = "Зразумела";
+"CURRENCIES.TAB.TITLE" = "Аналітыка";
+"SOMETHING.WENT.WRONG.TITLE" = "Нешта пайшло не так";
+"SORRY.SOME.MISTAKE" = "Выбачыце, адбылася памылка. Паўторыце спробу пазней.";

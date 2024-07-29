@@ -15,6 +15,7 @@ final class NetworkService {
     
     var fuelData: [Fuel]? = []
     var allCurrencies: [CurrencyData]?
+    var currencyRates: [DynamicCources]?
     
     /// Получение курсов валют на текущую дату
     func getCurrencyList(networkProvider: NetworkRequestProvider?, completion: @escaping (Result<[CurrencyData]?, Error>) -> ()) {
@@ -99,6 +100,28 @@ final class NetworkService {
                 }
                 completion(.success(fuel))
             }
+    }
+    
+    /// Получение динамики курсов по выбранной валюте
+    func getCurrencyRates(
+        networkProvider: NetworkRequestProvider?,
+        currencyCode: Int,
+        startDate: String,
+        endDate: String,
+        completion: @escaping (Result<[DynamicCources]?, Error>) -> ()
+    ) {
+        HUD.shared.show()
+        networkProvider?.fetchRates(currencyCode: currencyCode, startDate: startDate, endDate: endDate, completion: { result in
+            switch result {
+            case .success(let currencyRates):
+                HUD.shared.hide()
+                self.currencyRates = currencyRates
+                completion(.success(currencyRates))
+            case .failure(let error):
+                HUD.shared.hide()
+                completion(.failure(error))
+            }
+        })
     }
 }
 // https://api.nbrb.by/bic - https://www.nbrb.by/apihelp/bic

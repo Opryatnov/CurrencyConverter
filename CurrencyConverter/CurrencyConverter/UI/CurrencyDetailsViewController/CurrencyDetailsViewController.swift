@@ -1,13 +1,13 @@
 //
-//  CurrencyListViewController.swift
+//  CurrencyDetailsViewController.swift
 //  CurrencyConverter
 //
-//  Created by Dmitriy Opryatnov on 16.03.23.
+//  Created by Opryatnov on 26.07.24.
 //
 
 import UIKit
 
-final class CurrencyListViewController: UIViewController {
+final class CurrencyDetailsViewController: UIViewController {
     
     // MARK: Constants
     
@@ -36,10 +36,7 @@ final class CurrencyListViewController: UIViewController {
     
     private var currencies: [CurrencyData]?
     private let userDefaultsManager = UserDefaultsManager.shared
-    private var favoriteCurrenciesCode: [Int]? {
-        userDefaultsManager.getFavoriteCurrenciesCode()
-    }
-    private var currencyType: CurrencyType = .currencyList
+    private var currencyType: CurrencyType = .currencyDetails
     
     // MARK: Lifecycle
     
@@ -69,14 +66,11 @@ final class CurrencyListViewController: UIViewController {
     private func configureNavigationBar() {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.navigationBar.topItem?.title = LS("CURRENCY.LIST.TAB.TITLE")
+        navigationController?.navigationBar.topItem?.title = LS("CURRENCIES.TAB.TITLE")
     }
     
     private func fetchCurrencyList() {
-        self.currencies = NetworkService.shared.allCurrencies
-        self.favoriteCurrenciesCode?.forEach { code in
-            self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
-        }
+        self.currencies = NetworkService.shared.allCurrencies?.filter({$0.currencyAbbreviation != "BYN"})
         self.tableView.reloadData()
     }
     
@@ -86,11 +80,28 @@ final class CurrencyListViewController: UIViewController {
         ]
         showAlert(message: message, buttons: closeAction, viewController: self)
     }
+    
+    private func fetchRates(currencyCode: Int) {
+        NetworkService.shared.getCurrencyRates(
+            networkProvider: NetworkRequestProviderImpl(),
+            currencyCode: currencyCode,
+            startDate: "2024-05-01",
+            endDate: "2024-07-31"
+        ) { result in
+            switch result {
+            case .success:
+                let selectedCurrencyViewController = SelectedCurrencyDetailsViewController()
+                self.navigationController?.pushViewController(selectedCurrencyViewController, animated: true)
+            case .failure(let error):
+                self.showError(message: LS("SORRY.SOME.MISTAKE"))
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, - UITableViewDataSource
 
-extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate {
+extension CurrencyDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currencies?.count ?? .zero
     }
@@ -105,16 +116,10 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard currencyType == .currencyList else { return }
+        guard currencyType == .currencyDetails else { return }
         if let currency = currencies?[indexPath.row] {
-            currency.isSelected.toggle()
-            guard let currencyID = currency.currencyID else { return }
-            if currency.isSelected == true {
-                userDefaultsManager.setFavoriteCurrenciesCode(currencyID)
-            } else {
-                userDefaultsManager.removeFavorite(currencyID)
-            }
-            tableView.reloadData()
+            guard let code = currency.currencyID else { return }
+            fetchRates(currencyCode: code)
         }
     }
 }
