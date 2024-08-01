@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class CurrencyListViewController: UIViewController {
     
@@ -40,6 +41,7 @@ final class CurrencyListViewController: UIViewController {
         userDefaultsManager.getFavoriteCurrenciesCode()
     }
     private var currencyType: CurrencyType = .currencyList
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: Lifecycle
     
@@ -57,27 +59,28 @@ final class CurrencyListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchCurrencyList()
+        cancellables.removeAll()
+        reactToFetchCurrencies()
     }
     
     // MARK: Private methods
+    
+    private func reactToFetchCurrencies() {
+        NetworkService.shared.$fetchedCurrencies
+            .sink { currenciesList in
+                self.currencies = currenciesList
+                self.favoriteCurrenciesCode?.forEach { code in
+                    self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
+                }
+                self.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+    }
     
     private func configureNavigationBar() {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationController?.navigationBar.topItem?.title = LS("CURRENCY.LIST.TAB.TITLE")
-    }
-    
-    private func fetchCurrencyList() {
-        self.currencies = NetworkService.shared.allCurrencies
-        self.favoriteCurrenciesCode?.forEach { code in
-            self.currencies?.first(where: { $0.currencyID == code})?.isSelected = true
-        }
-        self.tableView.reloadData()
     }
     
     private func showError(message: String?) {
@@ -114,6 +117,7 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
             } else {
                 userDefaultsManager.removeFavorite(currencyID)
             }
+            userDefaultsManager.isChangedFavoriteList = true
             tableView.reloadData()
         }
     }

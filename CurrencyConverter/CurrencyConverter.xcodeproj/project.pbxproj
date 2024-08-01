@@ -56,6 +56,8 @@
 		2CAE682D2C469635000D95CF /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE682C2C469635000D95CF /* HTMLParser.swift */; };
 		2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */; };
 		2CB585472BE8ECF000A303BF /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB585462BE8ECF000A303BF /* Fuel.swift */; };
+		2CCA3E5F2C5A81410034812A /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA3E5E2C5A81410034812A /* DateValueFormatter.swift */; };
+		2CCA3E622C5B61690034812A /* RatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA3E612C5B61690034812A /* RatesTableViewCell.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
 		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
@@ -158,6 +160,8 @@
 		2CAE682C2C469635000D95CF /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		2CB0F8F72BEE122D00FC2AB4 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		2CB585462BE8ECF000A303BF /* Fuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
+		2CCA3E5E2C5A81410034812A /* DateValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
+		2CCA3E612C5B61690034812A /* RatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesTableViewCell.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 		2C8A91A92C5394AB00A84B12 /* SelectedCurrencyDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2CCA3E602C5B61500034812A /* Cell */,
+				2CCA3E5D2C5A81320034812A /* ChartsDataDateFormatter */,
 				2C8A91AC2C5394FC00A84B12 /* SelectedCurrencyDetailsViewController.xib */,
 				2C8A91AA2C5394D400A84B12 /* SelectedCurrencyDetailsViewController.swift */,
 			);
@@ -377,6 +383,22 @@
 				2C828C112BE5166000C5D2F0 /* CurrenciesManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		2CCA3E5D2C5A81320034812A /* ChartsDataDateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA3E5E2C5A81410034812A /* DateValueFormatter.swift */,
+			);
+			path = ChartsDataDateFormatter;
+			sourceTree = "<group>";
+		};
+		2CCA3E602C5B61500034812A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA3E612C5B61690034812A /* RatesTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2CDCA2C229C31F820019DFF4 /* UI */ = {
@@ -688,6 +710,7 @@
 				2C9D372A2BDFB2AB0091FF99 /* NetworkRequestProviderMockImpl.swift in Sources */,
 				2C9D37282BDFB09B0091FF99 /* NetworkService.swift in Sources */,
 				2C8A91972C526FC400A84B12 /* TextField+.swift in Sources */,
+				2CCA3E622C5B61690034812A /* RatesTableViewCell.swift in Sources */,
 				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
 				2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */,
 				2C65DE632BEE408A00668688 /* FuelCalculatorCell.swift in Sources */,
@@ -720,6 +743,7 @@
 				2C8A91952C526F9F00A84B12 /* Validator.swift in Sources */,
 				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
+				2CCA3E5F2C5A81410034812A /* DateValueFormatter.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
 				2CDCA2E329C335D60019DFF4 /* FuelCalculatorViewController.swift in Sources */,
 				2C68A8672BF35DCD00323440 /* UIApplication+.swift in Sources */,
@@ -901,7 +925,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G5C87ANM8;
+				DEVELOPMENT_TEAM = SKFLFSXTGB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -914,7 +938,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = none.CurrencyConverter;
+				PRODUCT_BUNDLE_IDENTIFIER = CurrencyConverter.by;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -929,7 +953,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G5C87ANM8;
+				DEVELOPMENT_TEAM = SKFLFSXTGB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -942,7 +966,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = none.CurrencyConverter;
+				PRODUCT_BUNDLE_IDENTIFIER = CurrencyConverter.by;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

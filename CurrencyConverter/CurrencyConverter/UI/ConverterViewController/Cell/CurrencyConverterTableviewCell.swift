@@ -104,7 +104,7 @@ final class CurrencyConverterTableviewCell: BaseTableViewCell {
     }
     
     private var currency: CurrencyData?
-        
+    
     // MARK: Internal methods
     
     func fill(currency: CurrencyData) {
@@ -113,9 +113,10 @@ final class CurrencyConverterTableviewCell: BaseTableViewCell {
         currencyCodeLabel.text = currency.currencyAbbreviation
         textField.text = currency.writeOfAmount?.description.toAmountFormat() ?? "0.00"
         textField.delegate = self
+        textField.addDoneButtonOnKeyboard()
     }
     
-    // MARK: Private methods
+    // MARK: Override methods
     
     override func configureViews() {
         backgroundColor = .clear
@@ -156,15 +157,10 @@ final class CurrencyConverterTableviewCell: BaseTableViewCell {
             $0.width.equalTo(textFieldCalculatedWidth).priority(.high)
         }
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        if selected {
-            textField.becomeFirstResponder()
-        }
-    }
 }
 
 extension CurrencyConverterTableviewCell: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         currencyView.layer.borderWidth = 0
         currencyView.layer.borderColor = UIColor.clear.cgColor
@@ -173,21 +169,20 @@ extension CurrencyConverterTableviewCell: UITextFieldDelegate {
         } else {
             let receiveAmountString = textField.text?.replacingOccurrences(of: ",", with: "") ?? ""
             textField.text = receiveAmountString.toAmountFormat()
-            currency?.writeOfAmount = Double(receiveAmountString)?.round()
-            delegate?.didChangeAmount(currency: currency)
         }
     }
     
+    
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = "0.00"
+        let receiveAmountString = textField.text?.replacingOccurrences(of: ",", with: "") ?? ""
+        currency?.writeOfAmount = Double(receiveAmountString)?.round()
+        delegate?.didChangeAmount(currency: currency)
+        
         currencyView.layer.borderWidth = 1
         currencyView.layer.borderColor = UIColor(resource: .gold1).cgColor
         textField.text = nil
-        textField.addDoneButtonOnKeyboard()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -196,15 +191,15 @@ extension CurrencyConverterTableviewCell: UITextFieldDelegate {
         guard let textFieldText = textField.text,
               let range = Range(range, in: textFieldText) else { return true }
         var updatedText = textFieldText.replacingCharacters(in: range, with: string)
-
+        
         if updatedText.suffix(1) == "," {
             let lastIndex = updatedText.index(before: updatedText.endIndex)
             updatedText.replaceSubrange(lastIndex...lastIndex, with: ["."])
         }
         let balanceString = updatedText.replacingOccurrences(of: ",", with: "")
-
+        
         let result = Validator.isValid(balanceString, type: inputValidator)
-
+        
         if result {
             let balance = Decimal(string: balanceString) ?? 0
             let lastDot: String

@@ -19,7 +19,7 @@ extension String {
         numberFormatter.groupingSeparator = ","
         numberFormatter.decimalSeparator = "."
         numberFormatter.groupingSize = 3
-        numberFormatter.minimumFractionDigits = 3
+        numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 3
         
         return numberFormatter.string(from: decimalNumber) ?? ""
