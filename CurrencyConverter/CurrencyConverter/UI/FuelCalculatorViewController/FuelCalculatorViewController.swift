@@ -126,7 +126,6 @@ extension FuelCalculatorViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.body.innerHTML") { [weak self] result, error in
             guard let html = result as? String, error == nil else {
-                print("Failed to load html")
                 HUD.shared.hide()
                 return
             }

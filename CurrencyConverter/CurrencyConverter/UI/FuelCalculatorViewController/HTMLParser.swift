@@ -52,7 +52,6 @@ final class HTMLParser {
             completion(fuel)
         } catch {
             errorCompletion(error)
-            print("error describing string \(String(describing: error))")
         }
     }
 }
