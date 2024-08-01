@@ -14,11 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let window = UIWindow()
-        window.rootViewController = MainTabBarViewController()
-        self.window = window
-        window.makeKeyAndVisible()
+        fetchCurrencies()
         
         return true
     }
@@ -81,6 +77,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    // MARK: Private methods
+    
+    private func fetchCurrencies() {
+        NetworkService.shared.getCurrencyList(networkProvider: NetworkRequestProviderImpl()) { result in
+            switch result {
+            case .success:
+                break
+            case .failure:
+                break
+            }
+        }
+    }
 }
 
