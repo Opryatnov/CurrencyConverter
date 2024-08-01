@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     func showAlert(
-        title: String? = "Attention",
+        title: String? = LS("ATTENTION"),
         message: String?,
         buttons: [UIAlertAction],
         preferredStyle: UIAlertController.Style = .alert,

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class ConverterViewController: UIViewController {
     
@@ -39,6 +40,13 @@ final class ConverterViewController: UIViewController {
     private var favoriteCurrenciesCode: [Int]? {
         userDefaultsManager.getFavoriteCurrenciesCode()
     }
+    private var cancellables = Set<AnyCancellable>()
+    
+    private var currentFormattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        return dateFormatter.string(from: Date())
+    }
     
     // MARK: Lifecycle
     
@@ -47,11 +55,6 @@ final class ConverterViewController: UIViewController {
         view.backgroundColor = UIColor(resource: .darkGray6)
         view.addSubview(tableView)
         configureNavigationBar()
-//        tableView.snp.makeConstraints {
-//            $0.leading.trailing.equalToSuperview()
-//            $0.top.equalToSuperview().inset(Constants.tableViewBottomInset)
-//            $0.bottom.equalToSuperview().inset((self.tabBarController?.tabBar.frame.height ?? .zero) + Constants.tableViewAdditionalInset)
-//        }
         tableView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
@@ -61,28 +64,53 @@ final class ConverterViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrencyConverterTableviewCell.self, forCellReuseIdentifier: CurrencyConverterTableviewCell.identifier)
+        
+        bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        currencies = []
+    // MARK: Private methods
+    
+    private func bind() {
+        cancellables.removeAll()
+        reactToFetchCurrencies()
+        subscribeToChangeFavoriteList()
+    }
+    
+    private func configureCurrencies(_ currenciesList: [CurrencyData]?) {
+        self.currencies = []
         self.favoriteCurrenciesCode?.forEach { code in
-            if let favoriteCurrency = NetworkService.shared.allCurrencies?.first(where: { $0.currencyID == code}) {
+            if let favoriteCurrency = currenciesList?.first(where: { $0.currencyID == code}) {
                 if self.currencies?.contains(favoriteCurrency) == false {
                     self.currencies?.append(favoriteCurrency)
                 }
             }
         }
-        currencies = currencies?.sorted(by: {$0.currencyAbbreviation ?? "" < $1.currencyAbbreviation ?? ""})
+        self.currencies = self.currencies?.sorted(by: {$0.currencyAbbreviation ?? "" < $1.currencyAbbreviation ?? ""})
         self.tableView.reloadData()
     }
     
-    // MARK: Private methods
+    
+    private func reactToFetchCurrencies() {
+        NetworkService.shared.$fetchedCurrencies
+            .sink { currenciesList in
+                self.configureCurrencies(currenciesList)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func subscribeToChangeFavoriteList() {
+        UserDefaultsManager.shared.$isChangedFavoriteList
+            .sink { isChanged in
+                guard isChanged == true else { return }
+                self.configureCurrencies(NetworkService.shared.fetchedCurrencies)
+            }
+            .store(in: &cancellables)
+    }
     
     private func configureNavigationBar() {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.navigationBar.topItem?.title = LS("CONVERTER.TAB.TITLE")
+        navigationController?.navigationBar.topItem?.title = LS("CONVERTER.TAB.TITLE") + " " + currentFormattedDate
     }
 }
 
@@ -105,6 +133,7 @@ extension ConverterViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ConverterViewController: CurrencyDataModelDelegate {
+    
     func didChangeAmount(currency: CurrencyData?) {
         var bynWriteOfAmount: Double = 0
         var otherWriteOfAmount: Double = 0
@@ -117,7 +146,6 @@ extension ConverterViewController: CurrencyDataModelDelegate {
         }
         currencies?.enumerated().forEach { (index, currencyModel) in
             guard currencyModel.currencyAbbreviation != currency?.currencyAbbreviation,
-                  let writeOfAmount = currency?.writeOfAmount,
                   let currencyOfficialRate = currencyModel.currencyOfficialRate,
                   let scale = currencyModel.currencyScale,
                   let currentCurrencyScale = currency?.currencyScale else { return }

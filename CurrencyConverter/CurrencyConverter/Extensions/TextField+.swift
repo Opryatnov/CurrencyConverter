@@ -26,6 +26,6 @@ extension UITextField {
     }
     
     @objc func doneButtonAction() {
-        self.resignFirstResponder()
+        self.endEditing(true)
     }
 }

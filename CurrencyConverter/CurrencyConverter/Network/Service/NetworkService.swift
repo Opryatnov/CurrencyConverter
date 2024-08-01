@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Combine
 
 final class NetworkService {
     
@@ -14,7 +15,8 @@ final class NetworkService {
     private init() {}
     
     var fuelData: [Fuel]? = []
-    var allCurrencies: [CurrencyData]?
+    private var allCurrencies: [CurrencyData]?
+    @Published var fetchedCurrencies: [CurrencyData]?
     var currencyRates: [DynamicCources]?
     
     /// Получение курсов валют на текущую дату
@@ -56,6 +58,7 @@ final class NetworkService {
                         writeOfAmount: nil
                     )
                     self.allCurrencies?.insert(belarusCurrency, at: 0)
+                    self.fetchedCurrencies = self.allCurrencies
                     completion(.success(currencies))
                 }
             case .failure(let error):
@@ -114,9 +117,9 @@ final class NetworkService {
         networkProvider?.fetchRates(currencyCode: currencyCode, startDate: startDate, endDate: endDate, completion: { result in
             switch result {
             case .success(let currencyRates):
-                HUD.shared.hide()
                 self.currencyRates = currencyRates
                 completion(.success(currencyRates))
+                HUD.shared.hide()
             case .failure(let error):
                 HUD.shared.hide()
                 completion(.failure(error))

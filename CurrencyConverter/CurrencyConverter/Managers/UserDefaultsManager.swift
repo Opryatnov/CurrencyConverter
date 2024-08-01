@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class UserDefaultsManager {
     
@@ -14,6 +15,7 @@ final class UserDefaultsManager {
     private init() {}
         
     private let userDefaults = UserDefaults.standard
+    @Published var isChangedFavoriteList: Bool?
     
     func setFavoriteCurrenciesCode(_ favoriteCurrenciesCode: Int) {
         var tempCurrenciesCode: [Int] = userDefaults.array(forKey: Key.currenciesKey) as? [Int] ?? []
