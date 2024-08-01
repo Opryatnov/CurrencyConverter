@@ -349,7 +349,6 @@ extension SelectedCurrencyDetailsViewController: UITableViewDataSource, UITableV
 
 extension SelectedCurrencyDetailsViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print(entry)
         selectedRate = "\(entry.y)"
         title = "1" + " " + (selectedCurrencyModel?.currencyAbbreviation ?? "") + " = " + "\(selectedRate ?? "") BYN"
     }
