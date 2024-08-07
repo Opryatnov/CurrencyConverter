@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import GoogleMobileAds
 
 final class CurrencyDetailsViewController: UIViewController {
     
@@ -16,6 +17,7 @@ final class CurrencyDetailsViewController: UIViewController {
         static let tableViewBottomInset: CGFloat = 20
         static let tableViewAdditionalInset: CGFloat = 15
         static let tableViewContentInset: CGFloat = 20
+        static let openDetailsCount: Int = 2
     }
     
     // MARK: UI
@@ -33,6 +35,8 @@ final class CurrencyDetailsViewController: UIViewController {
         return tableView
     }()
     
+    private var interstitial: GADInterstitialAd?
+    
     // MARK: Private properties
     
     private var currencies: [CurrencyData]?
@@ -49,6 +53,8 @@ final class CurrencyDetailsViewController: UIViewController {
         
         return dateFormatter.string(from: previousDate)
     }
+    private var selectedCurrency: CurrencyData?
+    private var adShowCount: Int = 0
     
     private var endDate: String? {
         let dateFormatter = DateFormatter()
@@ -73,6 +79,7 @@ final class CurrencyDetailsViewController: UIViewController {
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
         cancellables.removeAll()
         reactToFetchCurrencies()
+        setupScreenViewADS()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +94,24 @@ final class CurrencyDetailsViewController: UIViewController {
     }
     
     // MARK: Private methods
+    
+    private func setupScreenViewADS() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: AppConstants.googleVideoADKey, request: request) { (ad, error) in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            self.interstitial = ad
+            self.interstitial?.fullScreenContentDelegate = self
+        }
+    }
+    
+    func showInterstitial() {
+        if let interstitial = interstitial {
+            interstitial.present(fromRootViewController: self)
+        }
+    }
     
     private func configureNavigationBar() {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -131,6 +156,15 @@ final class CurrencyDetailsViewController: UIViewController {
             }
         }
     }
+    
+    private func showDetailsScreen() {
+        guard currencyType == .currencyDetails else { return }
+        if let currencyModel = selectedCurrency, currencyModel.currencyAbbreviation != "BYN" {
+            fetchRates(currencyModel)
+        } else {
+            showError(message: LS("SELECTED.CURRENCY.BYN.ANALYTICS.ATTENTION"))
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, - UITableViewDataSource
@@ -150,11 +184,36 @@ extension CurrencyDetailsViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard currencyType == .currencyDetails else { return }
-        if let currencyModel = currencies?[indexPath.row], currencyModel.currencyAbbreviation != "BYN" {
-            fetchRates(currencyModel)
-        } else {
-            showError(message: LS("SELECTED.CURRENCY.BYN.ANALYTICS.ATTENTION"))
+        selectedCurrency = currencies?[indexPath.row]
+        guard adShowCount >= Constants.openDetailsCount else {
+            adShowCount += 1
+            showDetailsScreen()
+            return
         }
+        guard let interstitial = interstitial else {
+            adShowCount = 0
+            showDetailsScreen()
+            return
+        }
+        
+        showInterstitial()
+        adShowCount = 0
+    }
+}
+
+extension CurrencyDetailsViewController: GADFullScreenContentDelegate {
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        showDetailsScreen()
+    }
+    
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        setupScreenViewADS()
+    }
+    
+    func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        showDetailsScreen()
     }
 }
