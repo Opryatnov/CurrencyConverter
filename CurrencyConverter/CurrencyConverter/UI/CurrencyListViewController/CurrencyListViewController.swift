@@ -7,6 +7,8 @@
 
 import UIKit
 import Combine
+import GoogleMobileAds
+
 
 final class CurrencyListViewController: UIViewController {
     
@@ -14,8 +16,9 @@ final class CurrencyListViewController: UIViewController {
     
     private enum Constants {
         static let tableViewBottomInset: CGFloat = 20
-        static let tableViewAdditionalInset: CGFloat = 15
-        static let tableViewContentInset: CGFloat = 20
+        static let tableViewAdditionalInset: CGFloat = 5
+        static let tableViewContentInset: CGFloat = 61
+        static let isHasNoughtHeight: CGFloat = 85
     }
     
     // MARK: UI
@@ -32,6 +35,8 @@ final class CurrencyListViewController: UIViewController {
         
         return tableView
     }()
+    
+    private var bannerView: GADBannerView!
     
     // MARK: Private properties
     
@@ -61,9 +66,26 @@ final class CurrencyListViewController: UIViewController {
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
         cancellables.removeAll()
         reactToFetchCurrencies()
+        configureBannerView()
     }
     
     // MARK: Private methods
+    
+    private func configureBannerView() {
+        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView = GADBannerView(adSize: adaptiveSize)
+        view.addSubview(bannerView)
+        
+        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight : Constants.tableViewAdditionalInset
+        bannerView.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(topInset + 15)
+        }
+        
+        bannerView.adUnitID = AppConstants.googleBannerADKey
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
     
     private func reactToFetchCurrencies() {
         NetworkService.shared.$fetchedCurrencies

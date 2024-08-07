@@ -8,16 +8,18 @@
 import UIKit
 import SnapKit
 import Combine
+import GoogleMobileAds
 
-final class ConverterViewController: UIViewController {
+final class ConverterViewController: UIViewController, GADBannerViewDelegate {
     
     // MARK: Constants
     
     private enum Constants {
         static let tableViewBottomInset: CGFloat = 20
-        static let tableViewAdditionalInset: CGFloat = 15
-        static let tableViewContentInset: CGFloat = 20
+        static let tableViewAdditionalInset: CGFloat = 5
+        static let tableViewContentInset: CGFloat = 61
         static let bynCode: String = "BYN"
+        static let isHasNoughtHeight: CGFloat = 85
     }
     
     // MARK: UI
@@ -34,6 +36,10 @@ final class ConverterViewController: UIViewController {
         
         return tableView
     }()
+    
+    private var bannerView: GADBannerView!
+    
+    // MARK: Private properties
     
     private var currencies: [CurrencyData]?
     private let userDefaultsManager = UserDefaultsManager.shared
@@ -66,6 +72,7 @@ final class ConverterViewController: UIViewController {
         tableView.register(CurrencyConverterTableviewCell.self, forCellReuseIdentifier: CurrencyConverterTableviewCell.identifier)
         
         bind()
+        configureBannerView()
     }
     
     // MARK: Private methods
@@ -74,6 +81,22 @@ final class ConverterViewController: UIViewController {
         cancellables.removeAll()
         reactToFetchCurrencies()
         subscribeToChangeFavoriteList()
+    }
+    
+    private func configureBannerView() {
+        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView = GADBannerView(adSize: adaptiveSize)
+        view.addSubview(bannerView)
+        
+        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight : Constants.tableViewAdditionalInset
+        bannerView.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(topInset + 15)
+        }
+        
+        bannerView.adUnitID = AppConstants.googleBannerADKey
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     private func configureCurrencies(_ currenciesList: [CurrencyData]?) {
