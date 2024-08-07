@@ -113,6 +113,7 @@
 
 /* Begin PBXFileReference section */
 		2C1BC9562C637A6E00419112 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		2C1BC9582C638B9900419112 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		2C4E523E2BEA1AF40027D041 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenViewController+extension.swift"; sourceTree = "<group>"; };
@@ -467,6 +468,7 @@
 				2CE3B99929C1C6480032647D /* SceneDelegate.swift */,
 				2CE3B9A829C1C6490032647D /* Info.plist */,
 				2CE3B9A029C1C6480032647D /* CurrencyConverter.xcdatamodeld */,
+				2C1BC9582C638B9900419112 /* PrivacyInfo.xcprivacy */,
 			);
 			path = CurrencyConverter;
 			sourceTree = "<group>";
