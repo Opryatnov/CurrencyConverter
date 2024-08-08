@@ -22,3 +22,4 @@
 "YESTERDAY.TITLE" = "Yesterday";
 "SELECTED.CURRENCY.BYN.ANALYTICS.ATTENTION" = "You have selected a currency in Belarusian rubles (BYN).\nAnalytics are not available for this currency";
 "ATTENTION" = "Attention";
+"HAS.NOT.SELECTED.CURRENCIES.TITLE" = "Add currencies";

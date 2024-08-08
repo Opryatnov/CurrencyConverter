@@ -37,7 +37,9 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
         return tableView
     }()
     
+    private var emptyView: UIView?
     private var bannerView: GADBannerView!
+    private var emptyButton: DashedBorderButton?
     
     // MARK: Private properties
     
@@ -89,9 +91,9 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
         bannerView = GADBannerView(adSize: adaptiveSize)
         view.addSubview(bannerView)
         
-        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight : Constants.tableViewAdditionalInset
+        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight + 15 : (tabBarController?.tabBar.frame.size.height ?? 50) + Constants.tableViewAdditionalInset
         bannerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(topInset + 15)
+            $0.bottom.equalToSuperview().inset(topInset)
         }
         
         bannerView.adUnitID = AppConstants.googleBannerADKey
@@ -109,9 +111,37 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
             }
         }
         self.currencies = self.currencies?.sorted(by: {$0.currencyAbbreviation ?? "" < $1.currencyAbbreviation ?? ""})
-        self.tableView.reloadData()
+        updateEmptyView()
+        tableView.reloadData()
     }
     
+    private func updateEmptyView() {
+           if self.currencies?.isEmpty == true {
+               if emptyButton == nil {
+                   let button = DashedBorderButton(type: .system)
+                   button.setTitle(LS("HAS.NOT.SELECTED.CURRENCIES.TITLE"), for: .normal)
+                   button.setTitleColor(.white, for: .normal)
+                   button.backgroundColor = UIColor(resource: .darkGray7)
+                   button.setImage(UIImage(resource: .addIcon).withRenderingMode(.alwaysOriginal), for: .normal) // Replace "icon" with your image name
+                   button.tintColor = .white
+                   button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+                   button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+                   
+                   tableView.addSubview(button)
+                   button.snp.makeConstraints {
+                       $0.centerY.centerX.equalToSuperview()
+                       $0.width.equalTo(UIScreen.main.bounds.width - 50)
+                       $0.height.equalTo(56)
+                   }
+                   
+                   emptyButton = button
+                   emptyButton?.addTarget(self, action: #selector(addCurrency), for: .touchUpInside)
+               }
+           } else {
+               emptyButton?.removeFromSuperview()
+               emptyButton = nil
+           }
+       }
     
     private func reactToFetchCurrencies() {
         NetworkService.shared.$fetchedCurrencies
@@ -134,6 +164,13 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationController?.navigationBar.topItem?.title = LS("CONVERTER.TAB.TITLE") + " " + currentFormattedDate
+    }
+    
+    @objc
+    private func addCurrency() {
+        let selectCurrencyViewController = CurrencyListViewController(nibName: nil, bundle: nil)
+        selectCurrencyViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(selectCurrencyViewController, animated: true)
     }
 }
 
