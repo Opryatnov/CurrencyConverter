@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C1BC9572C637A6E00419112 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BC9562C637A6E00419112 /* AppConstants.swift */; };
+		2C1BC95E2C64927A00419112 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2C1BC95D2C64927A00419112 /* FirebaseAnalytics */; };
+		2C1BC9602C6492A300419112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BC95F2C6492A300419112 /* GoogleService-Info.plist */; };
 		2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */; };
 		2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523E2BEA1AF40027D041 /* UIFont+.swift */; };
 		2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */; };
@@ -114,6 +116,7 @@
 /* Begin PBXFileReference section */
 		2C1BC9562C637A6E00419112 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		2C1BC9582C638B9900419112 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2C1BC95F2C6492A300419112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		2C4E523E2BEA1AF40027D041 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenViewController+extension.swift"; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1BC95E2C64927A00419112 /* FirebaseAnalytics in Frameworks */,
 				2CACC4BF2C624F14008FC7BC /* GoogleMobileAds in Frameworks */,
 				2C9D37112BDFA79B0091FF99 /* Alamofire in Frameworks */,
 				2CAE682B2C469610000D95CF /* SwiftSoup in Frameworks */,
@@ -468,6 +472,7 @@
 				2CE3B99929C1C6480032647D /* SceneDelegate.swift */,
 				2CE3B9A829C1C6490032647D /* Info.plist */,
 				2CE3B9A029C1C6480032647D /* CurrencyConverter.xcdatamodeld */,
+				2C1BC95F2C6492A300419112 /* GoogleService-Info.plist */,
 				2C1BC9582C638B9900419112 /* PrivacyInfo.xcprivacy */,
 			);
 			path = CurrencyConverter;
@@ -555,6 +560,7 @@
 				2CAE682A2C469610000D95CF /* SwiftSoup */,
 				2C8A91AF2C539BE900A84B12 /* DGCharts */,
 				2CACC4BE2C624F14008FC7BC /* GoogleMobileAds */,
+				2C1BC95D2C64927A00419112 /* FirebaseAnalytics */,
 			);
 			productName = CurrencyConverter;
 			productReference = 2CE3B99429C1C6480032647D /* CurrencyConverter.app */;
@@ -637,6 +643,7 @@
 				2CAE68292C469602000D95CF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				2C8A91AE2C539BD700A84B12 /* XCRemoteSwiftPackageReference "Charts" */,
 				2CACC4BD2C624E1A008FC7BC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				2C1BC95C2C64920400419112 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2CE3B99529C1C6480032647D /* Products */;
 			projectDirPath = "";
@@ -659,6 +666,7 @@
 				2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */,
 				2C8A91AD2C5394FC00A84B12 /* SelectedCurrencyDetailsViewController.xib in Resources */,
 				2C9D37422BDFE7600091FF99 /* loading.json in Resources */,
+				2C1BC9602C6492A300419112 /* GoogleService-Info.plist in Resources */,
 				2C9D372C2BDFB3110091FF99 /* countries.json in Resources */,
 				2C828C072BE50A3A00C5D2F0 /* Localizable.strings in Resources */,
 				2C8A91A72C538F8500A84B12 /* CurrencyDetailsViewController.xib in Resources */,
@@ -1082,6 +1090,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C1BC95C2C64920400419112 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		2C8A91AE2C539BD700A84B12 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
@@ -1133,6 +1149,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C1BC95D2C64927A00419112 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C1BC95C2C64920400419112 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		2C8A91AF2C539BE900A84B12 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2C8A91AE2C539BD700A84B12 /* XCRemoteSwiftPackageReference "Charts" */;
