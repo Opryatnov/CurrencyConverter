@@ -9,19 +9,19 @@ import UIKit
 import GoogleMobileAds
 import AppTrackingTransparency
 import AdSupport
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if let window = window, window.rootViewController != nil {
-            requestTrackingAuthorization()
-        } else {
-            NotificationCenter.default.addObserver(self, selector: #selector(requestTrackingAuthorization), name: UIWindow.didBecomeVisibleNotification, object: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.requestTrackingAuthorization()
         }
+        FirebaseApp.configure()
         fetchCurrencies()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
