@@ -22,3 +22,4 @@
 "YESTERDAY.TITLE" = "Вчера";
 "SELECTED.CURRENCY.BYN.ANALYTICS.ATTENTION" = "Вы выбрали валюту в Белорусских рублях (BYN). \n Для данной валюты аналитика не доступна";
 "ATTENTION" = "Внимание";
+"HAS.NOT.SELECTED.CURRENCIES.TITLE" = "Добавить валюты";

@@ -64,9 +64,13 @@ final class CurrencyListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
+        configureBannerView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cancellables.removeAll()
         reactToFetchCurrencies()
-        configureBannerView()
     }
     
     // MARK: Private methods
@@ -77,9 +81,9 @@ final class CurrencyListViewController: UIViewController {
         bannerView = GADBannerView(adSize: adaptiveSize)
         view.addSubview(bannerView)
         
-        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight : Constants.tableViewAdditionalInset
+        let topInset = UIDevice.hasNotch ? Constants.isHasNoughtHeight + 15 : (tabBarController?.tabBar.frame.size.height ?? 50) + Constants.tableViewAdditionalInset
         bannerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(topInset + 15)
+            $0.bottom.equalToSuperview().inset(topInset)
         }
         
         bannerView.adUnitID = AppConstants.googleBannerADKey
