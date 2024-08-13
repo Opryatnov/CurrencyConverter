@@ -11,9 +11,10 @@
 		2C1BC95E2C64927A00419112 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2C1BC95D2C64927A00419112 /* FirebaseAnalytics */; };
 		2C1BC9622C64A0F400419112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BC9612C64A0F400419112 /* GoogleService-Info.plist */; };
 		2C1BC9642C64C12100419112 /* DashedBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BC9632C64C12100419112 /* DashedBorderButton.swift */; };
-		2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */; };
+		2C3055EB2C663109005D6BD7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3055EA2C663109005D6BD7 /* GradientView.swift */; };
+		2C3055ED2C663270005D6BD7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3055EC2C663270005D6BD7 /* Launch Screen.storyboard */; };
+		2C3055EF2C6A273C005D6BD7 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3055EE2C6A273C005D6BD7 /* ConverterViewController.xib */; };
 		2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E523E2BEA1AF40027D041 /* UIFont+.swift */; };
-		2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */; };
 		2C4E52432BEA1C010027D041 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E52422BEA1C010027D041 /* UIWindow+.swift */; };
 		2C68A8652BF35D8B00323440 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68A8642BF35D8B00323440 /* Navigation.swift */; };
 		2C68A8672BF35DCD00323440 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68A8662BF35DCD00323440 /* UIApplication+.swift */; };
@@ -63,12 +64,11 @@
 		2CCA3E622C5B61690034812A /* RatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA3E612C5B61690034812A /* RatesTableViewCell.swift */; };
 		2CDCA2D429C329F20019DFF4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */; };
 		2CDCA2DB29C335B20019DFF4 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */; };
-		2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */; };
 		2CDCA2DF29C335C60019DFF4 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */; };
 		2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */; };
 		2CE3B99829C1C6480032647D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99729C1C6480032647D /* AppDelegate.swift */; };
 		2CE3B99A29C1C6480032647D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99929C1C6480032647D /* SceneDelegate.swift */; };
-		2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */; };
+		2CE3B99C29C1C6480032647D /* GeneralTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B99B29C1C6480032647D /* GeneralTabBarViewController.swift */; };
 		2CE3B9A229C1C6480032647D /* CurrencyConverter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9A029C1C6480032647D /* CurrencyConverter.xcdatamodeld */; };
 		2CE3B9A429C1C6490032647D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3B9A329C1C6490032647D /* Assets.xcassets */; };
 		2CE3B9B229C1C6490032647D /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3B9B129C1C6490032647D /* CurrencyConverterTests.swift */; };
@@ -119,9 +119,10 @@
 		2C1BC9582C638B9900419112 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2C1BC9612C64A0F400419112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C1BC9632C64C12100419112 /* DashedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedBorderButton.swift; sourceTree = "<group>"; };
-		2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		2C3055EA2C663109005D6BD7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2C3055EC2C663270005D6BD7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2C3055EE2C6A273C005D6BD7 /* ConverterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
 		2C4E523E2BEA1AF40027D041 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenViewController+extension.swift"; sourceTree = "<group>"; };
 		2C4E52422BEA1C010027D041 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		2C68A8642BF35D8B00323440 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		2C68A8662BF35DCD00323440 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
@@ -167,13 +168,12 @@
 		2CCA3E612C5B61690034812A /* RatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesTableViewCell.swift; sourceTree = "<group>"; };
 		2CDCA2D329C329F20019DFF4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
-		2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterViewController.xib; sourceTree = "<group>"; };
 		2CDCA2DD29C335C60019DFF4 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		2CDCA2DE29C335C60019DFF4 /* CurrencyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyListViewController.xib; sourceTree = "<group>"; };
 		2CE3B99429C1C6480032647D /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE3B99729C1C6480032647D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE3B99929C1C6480032647D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		2CE3B99B29C1C6480032647D /* GeneralTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabBarViewController.swift; sourceTree = "<group>"; };
 		2CE3B9A129C1C6480032647D /* CurrencyConverter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrencyConverter.xcdatamodel; sourceTree = "<group>"; };
 		2CE3B9A329C1C6490032647D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE3B9A829C1C6490032647D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,15 +228,6 @@
 				2C1BC9562C637A6E00419112 /* AppConstants.swift */,
 			);
 			path = AppConstants;
-			sourceTree = "<group>";
-		};
-		2C4E523B2BEA1A9B0027D041 /* SplashScreen */ = {
-			isa = PBXGroup;
-			children = (
-				2C4E523C2BEA1AAB0027D041 /* SplashScreenViewController.swift */,
-				2C4E52402BEA1BA00027D041 /* SplashScreenViewController+extension.swift */,
-			);
-			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		2C65DE602BEE400100668688 /* Components */ = {
@@ -409,10 +400,11 @@
 			isa = PBXGroup;
 			children = (
 				2C8A91A82C53947A00A84B12 /* CurrencyDetailsViewController */,
-				2C4E523B2BEA1A9B0027D041 /* SplashScreen */,
 				2CDCA2C529C3230D0019DFF4 /* CurrencyListViewController */,
 				2CDCA2C429C322FC0019DFF4 /* ConverterViewController */,
-				2CE3B99B29C1C6480032647D /* MainTabBarViewController.swift */,
+				2CE3B99B29C1C6480032647D /* GeneralTabBarViewController.swift */,
+				2C3055EA2C663109005D6BD7 /* GradientView.swift */,
+				2C3055EC2C663270005D6BD7 /* Launch Screen.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -422,7 +414,7 @@
 			children = (
 				2CEF5CBD2C4E7EEE00F9489C /* Cell */,
 				2CDCA2D929C335B20019DFF4 /* ConverterViewController.swift */,
-				2CDCA2DA29C335B20019DFF4 /* ConverterViewController.xib */,
+				2C3055EE2C6A273C005D6BD7 /* ConverterViewController.xib */,
 			);
 			path = ConverterViewController;
 			sourceTree = "<group>";
@@ -668,6 +660,7 @@
 				2C828C102BE50E8400C5D2F0 /* allCurrenciesWithLanguages.json in Resources */,
 				2CDCA2E029C335C60019DFF4 /* CurrencyListViewController.xib in Resources */,
 				2C8A91AD2C5394FC00A84B12 /* SelectedCurrencyDetailsViewController.xib in Resources */,
+				2C3055ED2C663270005D6BD7 /* Launch Screen.storyboard in Resources */,
 				2C9D37422BDFE7600091FF99 /* loading.json in Resources */,
 				2C1BC9622C64A0F400419112 /* GoogleService-Info.plist in Resources */,
 				2C9D372C2BDFB3110091FF99 /* countries.json in Resources */,
@@ -675,7 +668,7 @@
 				2C8A91A72C538F8500A84B12 /* CurrencyDetailsViewController.xib in Resources */,
 				2CE3B9A429C1C6490032647D /* Assets.xcassets in Resources */,
 				2C9D373B2BDFDFC80091FF99 /* currencies.json in Resources */,
-				2CDCA2DC29C335B20019DFF4 /* ConverterViewController.xib in Resources */,
+				2C3055EF2C6A273C005D6BD7 /* ConverterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,8 +704,7 @@
 				2C8A91972C526FC400A84B12 /* TextField+.swift in Sources */,
 				2CCA3E622C5B61690034812A /* RatesTableViewCell.swift in Sources */,
 				2C9D37082BDF94D40091FF99 /* Gradient.swift in Sources */,
-				2C4E523D2BEA1AAB0027D041 /* SplashScreenViewController.swift in Sources */,
-				2CE3B99C29C1C6480032647D /* MainTabBarViewController.swift in Sources */,
+				2CE3B99C29C1C6480032647D /* GeneralTabBarViewController.swift in Sources */,
 				2C9D37342BDFC2690091FF99 /* UIViewController+.swift in Sources */,
 				2CE3B9DD29C30E6C0032647D /* UIView+Xib.swift in Sources */,
 				2C8A91992C526FE000A84B12 /* Decimal+.swift in Sources */,
@@ -723,6 +715,7 @@
 				2C8A919B2C526FF400A84B12 /* Formatter+.swift in Sources */,
 				2C7A81682BE11FA30071934F /* UIView+.swift in Sources */,
 				2CB0F8F82BEE122D00FC2AB4 /* UIDevice+.swift in Sources */,
+				2C3055EB2C663109005D6BD7 /* GradientView.swift in Sources */,
 				2C68A8652BF35D8B00323440 /* Navigation.swift in Sources */,
 				2CE3B9D229C30B7F0032647D /* UITableView+Cells.swift in Sources */,
 				2C4E523F2BEA1AF40027D041 /* UIFont+.swift in Sources */,
@@ -740,7 +733,6 @@
 				2C9D370C2BDFA6AC0091FF99 /* NetworkRequestProviderImpl.swift in Sources */,
 				2CEF5CBF2C4E7F1C00F9489C /* CurrencyConverterTableviewCell.swift in Sources */,
 				2C8A91952C526F9F00A84B12 /* Validator.swift in Sources */,
-				2C4E52412BEA1BA00027D041 /* SplashScreenViewController+extension.swift in Sources */,
 				2C828C122BE5166000C5D2F0 /* CurrenciesManager.swift in Sources */,
 				2CCA3E5F2C5A81410034812A /* DateValueFormatter.swift in Sources */,
 				2CE3B9DC29C30E6C0032647D /* NibLoad+Reuse.swift in Sources */,
@@ -921,15 +913,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SKFLFSXTGB;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6X5UG49YNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Валюта НБРБ";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Мы используем данные для показа персонализированной рекламы.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -941,9 +935,13 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.currencyConverter.bel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "CurrencyConverterProfile dev";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -952,15 +950,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SKFLFSXTGB;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6X5UG49YNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Валюта НБРБ";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Мы используем данные для показа персонализированной рекламы.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -972,9 +972,13 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.currencyConverter.bel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "CurrencyConverter release";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

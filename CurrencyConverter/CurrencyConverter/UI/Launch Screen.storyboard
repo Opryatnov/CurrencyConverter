@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rgadient" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-sZ-dy9">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сurrency of Belarus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awV-36-zWt">
+                                <rect key="frame" x="16" y="406.66666666666669" width="361" height="38.666666666666686"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="awV-36-zWt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MHE-l9-0tj"/>
+                            <constraint firstAttribute="bottom" secondItem="OVQ-sZ-dy9" secondAttribute="bottom" id="PDB-1l-mt8"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="awV-36-zWt" secondAttribute="trailing" constant="16" id="aDx-4W-7Rd"/>
+                            <constraint firstItem="OVQ-sZ-dy9" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="aPV-fz-owO"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="OVQ-sZ-dy9" secondAttribute="trailing" id="g3z-a6-ynT"/>
+                            <constraint firstItem="OVQ-sZ-dy9" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="q0C-Zg-7sV"/>
+                            <constraint firstItem="awV-36-zWt" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="16" id="uwZ-lv-WL4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rgadient" width="1080" height="1920"/>
+    </resources>
+</document>

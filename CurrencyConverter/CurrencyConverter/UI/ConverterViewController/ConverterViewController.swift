@@ -27,7 +27,6 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = UIColor(resource: .darkGray6)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.keyboardDismissMode = .onDrag
         tableView.showsVerticalScrollIndicator = false
@@ -72,9 +71,8 @@ final class ConverterViewController: UIViewController, GADBannerViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrencyConverterTableviewCell.self, forCellReuseIdentifier: CurrencyConverterTableviewCell.identifier)
-        
-        bind()
         configureBannerView()
+        bind()
     }
     
     // MARK: Private methods

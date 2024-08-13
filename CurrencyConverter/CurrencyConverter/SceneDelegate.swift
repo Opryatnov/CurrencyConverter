@@ -14,25 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        showSplashScreen(windowScene: windowScene) {
-            self.setupRootViewController()
-        }
-    }
-    
-    private func showSplashScreen(windowScene: UIWindowScene, completion: @escaping () -> Void) {
-        let viewController = SplashScreenViewController()
+
+        let viewController = GeneralTabBarViewController()
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = viewController
         self.window = window
-        viewController.closeAction = {
-            completion()
-        }
         window.makeKeyAndVisible()
-    }
-    
-    private func setupRootViewController() {
-        window?.replaceRootViewController(MainTabBarViewController())
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

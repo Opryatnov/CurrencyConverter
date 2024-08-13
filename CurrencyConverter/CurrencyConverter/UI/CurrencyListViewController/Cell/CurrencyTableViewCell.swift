@@ -89,7 +89,7 @@ final class CurrencyTableViewCell: BaseTableViewCell {
     // MARK: Internal properties
     
     static let identifier: String = "CurrencyTableViewCell"
-        
+    
     // MARK: Internal methods
     
     func fill(currency: CurrencyData, currencyType: CurrencyType) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainTabBarViewController: UITabBarController {
+final class GeneralTabBarViewController: UITabBarController {
     
     // MARK:  Override methods
 
